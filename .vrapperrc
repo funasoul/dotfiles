@@ -1,0 +1,13 @@
+set ignorecase
+set smartcase
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set nowrapscan
+set nohlsearch
+set startnormalmode
+set imdisable
+nmap <C-U> :nohlsearch<CR>
+map g 1G
+map -- mz"zy'k'z
+map -= mz"zd'k'z
