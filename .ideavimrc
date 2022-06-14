@@ -1,0 +1,70 @@
+" ----------------------------------------------
+" Last modified: Thu, 18 Jun 2020 20:23:50 +0900
+" ----------------------------------------------
+" from ~/.exrc
+set autoindent
+set ignorecase
+set nowrapscan
+map -- mz"zy'k'z
+map -= mz"zd'k'z
+
+" from ~/.vimrc
+
+" vi との互換性OFF
+set nocompatible
+
+"" set my vim variables
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set smartcase
+set cursorline
+set history=1000
+set paste
+set paste!
+set backspace=start,eol,indent
+set ambiwidth=double
+" set my background as dark
+" set background=dark
+" set encoding=euc-jp
+" set termencoding=euc-jp
+" set fileencoding=euc-jp
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
+set fileformats=unix,dos,mac
+set hlsearch
+"highlight Search ctermbg=cyan ctermfg=black
+"set t_Co=256
+"colorscheme wombat256funa
+" screen 256 mode fix
+"highlight Normal ctermbg=NONE
+"highlight nonText ctermbg=NONE
+"
+"" set for ideavim only
+set surround
+" If true, join command will be performed via IDE
+" See wiki/`ideajoin` examples
+set ideajoin
+nmap <C-o> :action Back<CR>
+nmap <C-i> :action Forward<CR>
+"same as Eclipse [Cmd]+[Option]+R
+nmap <M-A-R> :action RenameElement<CR>
+nmap <space>r :action RenameElement<CR>
+nmap <C-c>c :action Run<CR>
+nmap <space>1 :action ShowIntentionActions<CR> " default is [option]-[Enter]
+
+"" My keymappings
+map <C-U> :nohlsearch<CR>
+nmap <C-j> :action VcsShowNextChangeMarker<CR>
+nmap <C-k> :action VcsShowPrevChangeMarker<CR>
+nmap <C-n> :action GotoNextError<CR>
+nmap <C-p> :action GotoPreviousError<CR>
+nmap <space><space> :action QuickJavaDoc<CR>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <silent> <C-d> <Del>
+" move in wrapped line by arrow key
+nnoremap <Down> gj
+nnoremap <Up> gk
