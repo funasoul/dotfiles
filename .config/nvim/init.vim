@@ -1,4 +1,4 @@
-" Last Modified: 日, 05  6 2022 01:26:59 +0900
+" Last Modified: Sun, 19 Jun 2022 02:29:18 +0900
 
 if !exists('g:vscode')
   source $HOME/.config/nvim/vim-plug/plugins.vim
@@ -25,7 +25,6 @@ if !exists('g:vscode')
   source $HOME/.config/nvim/plug-config/codi.vim
   source $HOME/.config/nvim/plug-config/treesitter.vim
   source $HOME/.config/nvim/plug-config/notify.lua
-  source $HOME/.config/nvim/plug-config/neovide.vim
 
   " luafile $HOME/.config/nvim/lua/plug-colorizer.lua
 endif
