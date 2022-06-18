@@ -1,4 +1,4 @@
-" Last Modified: Sat, 18 Jun 2022 22:58:06 +0900
+" Last Modified: Sun, 19 Jun 2022 03:28:30 +0900
 
 " set leader key
 let g:mapleader = "\<Space>"
@@ -12,7 +12,7 @@ set fileencoding=utf-8                  " The encoding written to file
 set ruler              			            " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
 set iskeyword+=-                      	" treat dash separated words as a word text object"
-"set mouse=a                             " Enable your mouse
+" set mouse=a                             " Enable your mouse
 set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
 set t_Co=256                            " Support 256 colors
