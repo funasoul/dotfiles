@@ -1,4 +1,4 @@
-" Last Modified: 日, 05  6 2022 01:35:58 +0900
+" Last Modified: Sat, 18 Jun 2022 22:58:06 +0900
 
 " set leader key
 let g:mapleader = "\<Space>"
@@ -63,10 +63,10 @@ if !exists("g:os")
     endif
 endif
 
-"if g:os == "Darwin"
+if g:os == "Darwin"
 "  let g:python_host_prog='/opt/local/bin/python2'
-"  let g:python3_host_prog='/opt/local/bin/python'
-"endif
+  let g:python3_host_prog='/opt/local/bin/python'
+endif
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
