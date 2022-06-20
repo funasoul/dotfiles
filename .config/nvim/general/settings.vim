@@ -1,4 +1,4 @@
-" Last Modified: Sun, 19 Jun 2022 03:28:30 +0900
+" Last Modified: 日, 19  6 2022 07:36:34 +0900
 
 " set leader key
 let g:mapleader = "\<Space>"
@@ -38,7 +38,7 @@ set formatoptions-=cro                  " Stop newline continution of comments
 "set autochdir                           " Your working directory will always be the same as your working directory
 
 " funa setting
-set mouse=                              "disable mouse function on vim
+"set mouse=                              "disable mouse function on vim
 set backspace=start,eol,indent
 set hlsearch
 set ignorecase
