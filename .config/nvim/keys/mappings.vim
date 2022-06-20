@@ -11,6 +11,9 @@ map -- mz"zy'k'z
 map -= mz"zd'k'z
 map -y "zy'k
 
+" disable recording to macro
+map q <Nop>
+
 " history-search-backward like zsh
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
@@ -76,3 +79,8 @@ nmap <C-k> <Plug>(signify-prev-hunk)
 " https://stackoverflow.com/questions/4256697/vim-search-and-highlight-but-do-not-jump
 nnoremap * :keepjumps normal! mi*`i<CR>
 
+" AsyncTask and AsycnRun
+noremap <silent><f5> :AsyncTask file-run<cr>
+noremap <silent><f6> :AsyncTask project-run<cr>
+noremap <silent><f7> :AsyncTask project-build<cr>
+noremap <silent><f9> :AsyncTask file-build<cr>
