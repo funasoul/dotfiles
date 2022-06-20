@@ -60,5 +60,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " nvim-notify
     " :lua require("notify").notify("This is an error message", "error")
     Plug 'rcarriga/nvim-notify'
+    " Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more
+    Plug 'tpope/vim-surround'
 
 call plug#end()
