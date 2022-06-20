@@ -1,4 +1,4 @@
-" Last Modified: Sun, 19 Jun 2022 02:29:18 +0900
+" Last Modified: Mon, 20 Jun 2022 15:39:01 +0900
 
 if !exists('g:vscode')
   source $HOME/.config/nvim/vim-plug/plugins.vim
@@ -19,12 +19,13 @@ if !exists('g:vscode')
   source $HOME/.config/nvim/plug-config/fzf.vim
   " source $HOME/.config/nvim/plug-config/rainbow_parentheses.vim
   source $HOME/.config/nvim/plug-config/signify.vim
-  source $HOME/.config/nvim/keys/which-key.vim
   source $HOME/.config/nvim/plug-config/floaterm.vim
   source $HOME/.config/nvim/plug-config/start-screen.vim
   source $HOME/.config/nvim/plug-config/codi.vim
   source $HOME/.config/nvim/plug-config/treesitter.vim
   source $HOME/.config/nvim/plug-config/notify.lua
-
   " luafile $HOME/.config/nvim/lua/plug-colorizer.lua
+
+  " Which-key
+  source $HOME/.config/nvim/keys/which-key.vim
 endif
