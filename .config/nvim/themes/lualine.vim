@@ -11,10 +11,17 @@ require('lualine').setup {
     },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'g:coc_status', 'branch', 'diff',
+    lualine_b = {'g:coc_status', 'branch', 'diff', 'b:coc_git_status',
                   {'diagnostics', sources={'coc'}}},
     lualine_c = {'filename', 'b:coc_git_blame'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_x = {'encoding',
+                  {'fileformat',
+                    symbols = {
+                      unix = '', -- f30c
+                      dos = '',  -- e70f
+                      mac = '',  -- e711
+                      }
+        }, 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
     },
