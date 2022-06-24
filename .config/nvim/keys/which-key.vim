@@ -256,7 +256,7 @@ let g:which_key_map.g = {
       \ 'G' : [':Gstatus'                          , 'status'],
       \ 'h' : [':GitGutterLineHighlightsToggle'    , 'highlight hunks'],
       \ 'H' : ['<Plug>(GitGutterPreviewHunk)'      , 'preview hunk'],
-      \ 'i' : [':Gist -b'                          , 'post gist'],
+      \ 'i' : [':CocList --normal issues'          , 'Issue'],
       \ 'j' : ['<Plug>(GitGutterNextHunk)'         , 'next hunk'],
       \ 'k' : ['<Plug>(GitGutterPrevHunk)'         , 'prev hunk'],
       \ 'l' : [':Git log'                          , 'log'],
@@ -280,7 +280,7 @@ let g:which_key_map.g = {
 let g:which_key_map.G = {
       \ 'name' : '+gist' ,
       \ 'a' : [':Gist -a'                          , 'post gist anon'],
-      \ 'b' : [':Gist -b'                          , 'post gist browser'],
+      \ 'b' : [':Gist -b'                          , 'post gist'],
       \ 'd' : [':Gist -d'                          , 'delete gist'],
       \ 'e' : [':Gist -e'                          , 'edit gist'],
       \ 'l' : [':Gist -l'                          , 'list public gists'],
