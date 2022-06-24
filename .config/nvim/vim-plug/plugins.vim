@@ -7,7 +7,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
-
     " Better Syntax Support
     " Plug 'sheerun/vim-polyglot'
     " nvim-treesitter
@@ -63,5 +62,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'rcarriga/nvim-notify'
     " Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more
     Plug 'tpope/vim-surround'
+    " Display your undo history in a graph.
+    Plug 'mbbill/undotree'
+    " Vim Better Whitespace Plugin (:StripWhitespace)
+    Plug 'ntpeters/vim-better-whitespace'
 
 call plug#end()
