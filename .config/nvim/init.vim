@@ -1,4 +1,4 @@
-" Last Modified: Mon, 20 Jun 2022 15:39:01 +0900
+" Last Modified: Sat, 25 Jun 2022 01:48:07 +0900
 
 if !exists('g:vscode')
   source $HOME/.config/nvim/vim-plug/plugins.vim
@@ -9,8 +9,9 @@ source $HOME/.config/nvim/keys/mappings.vim
 
 if !exists('g:vscode')
   " source $HOME/.config/nvim/general/paths.vim
-  source $HOME/.config/nvim/themes/onedark.vim
+  " source $HOME/.config/nvim/themes/onedark.vim
   " source $HOME/.config/nvim/themes/onehalf.vim
+  source $HOME/.config/nvim/themes/nvcode.vim
   source $HOME/.config/nvim/themes/airline.vim
   source $HOME/.config/nvim/plug-config/asynctasks.vim
   source $HOME/.config/nvim/plug-config/coc.vim

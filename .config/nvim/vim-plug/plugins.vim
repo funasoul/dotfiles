@@ -15,10 +15,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
     " OneDark theme
-    " Plug 'joshdick/onedark.vim'
     Plug 'navarasu/onedark.nvim'
     " OneHalf theme
     Plug 'sonph/onehalf', {'rtp': 'vim/'}
+    " NVCode theme
+    Plug 'christianchiarulli/nvcode-color-schemes.vim'
     " Airline
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
