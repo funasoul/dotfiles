@@ -1,4 +1,4 @@
-" Last Modified: 日, 19  6 2022 07:36:34 +0900
+" Last Modified: Sat, 25 Jun 2022 06:32:31 +0900
 
 " set leader key
 let g:mapleader = "\<Space>"
@@ -23,7 +23,7 @@ set smarttab                            " Makes tabbing smarter will realize you
 set expandtab                           " Converts tabs to spaces
 set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
-set laststatus=0                        " Always display the status line
+set laststatus=2                        " Always display the status line
 set number                              " Line numbers
 set cursorline                          " Enable highlighting of the current line
 set background=dark                     " tell vim what the background color looks like

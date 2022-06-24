@@ -20,8 +20,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " NVCode theme
     Plug 'christianchiarulli/nvcode-color-schemes.vim'
     " Airline
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    " Plug 'vim-airline/vim-airline'
+    " Plug 'vim-airline/vim-airline-themes'
+    " A blazing fast and easy to configure Neovim statusline written in Lua.
+    Plug 'nvim-lualine/lualine.nvim'
+    Plug 'kyazdani42/nvim-web-devicons'
     " Stable version of coc
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Ranger
