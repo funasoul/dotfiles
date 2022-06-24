@@ -66,5 +66,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mbbill/undotree'
     " Vim Better Whitespace Plugin (:StripWhitespace)
     Plug 'ntpeters/vim-better-whitespace'
+    " help Vim/Nvim users escape insert mode quickly using their customized key combinations, without experiencing the lag.
+    Plug 'jdhao/better-escape.vim'
 
 call plug#end()

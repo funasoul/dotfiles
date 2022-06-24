@@ -1,4 +1,4 @@
-" Last Modified: Sat, 25 Jun 2022 03:34:06 +0900
+" Last Modified: Sat, 25 Jun 2022 04:15:21 +0900
 
 if !exists('g:vscode')
   source $HOME/.config/nvim/vim-plug/plugins.vim
@@ -14,6 +14,7 @@ if !exists('g:vscode')
   source $HOME/.config/nvim/themes/nvcode.vim
   source $HOME/.config/nvim/themes/airline.vim
   source $HOME/.config/nvim/plug-config/asynctasks.vim
+  source $HOME/.config/nvim/plug-config/better-escape.vim
   source $HOME/.config/nvim/plug-config/coc.vim
   source $HOME/.config/nvim/plug-config/rnvimr.vim
   source $HOME/.config/nvim/plug-config/vim-commentary.vim

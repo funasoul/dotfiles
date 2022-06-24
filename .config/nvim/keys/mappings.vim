@@ -35,9 +35,10 @@ nnoremap <A-h>    :vertical resize -2<CR>
 nnoremap <A-l>    :vertical resize +2<CR>
 
 " I hate escape more than anything else
-"inoremap jj <Esc>
-inoremap jk <Esc>
-inoremap kj <Esc>
+" Changed to use better-escape.vim
+" inoremap jj <Esc>
+" inoremap jk <Esc>
+" inoremap kj <Esc>
 
 " Easy CAPS
 " inoremap <c-u> <ESC>viwUi
