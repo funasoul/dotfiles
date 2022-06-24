@@ -1,18 +1,18 @@
 " from my .exrc and .vimrc
-map Q :qall<CR>
-map <C-u> :nohlsearch<CR>
-map P "zp
-map -1 "1p 
-map -2 "2p
-map -3 "3p
-map -4 "4p
-map -0 myG"zy'y'y
-map -- mz"zy'k'z
-map -= mz"zd'k'z
-map -y "zy'k
+nnoremap Q :qall<CR>
+nnoremap <C-u> :nohlsearch<CR>
+nnoremap P "zp
+nnoremap -1 "1p
+nnoremap -2 "2p
+nnoremap -3 "3p
+nnoremap -4 "4p
+nnoremap -0 myG"zy'y'y
+nnoremap -- mz"zy'k'z
+nnoremap -= mz"zd'k'z
+nnoremap -y "zy'k
 
 " disable recording to macro
-map q <Nop>
+nnoremap q <Nop>
 
 " history-search-backward like zsh
 cnoremap <C-p> <Up>
@@ -29,13 +29,13 @@ inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
 " Use alt + hjkl to resize windows
-nnoremap <M-j>    :resize -2<CR>
-nnoremap <M-k>    :resize +2<CR>
-nnoremap <M-h>    :vertical resize -2<CR>
-nnoremap <M-l>    :vertical resize +2<CR>
+nnoremap <A-j>    :resize -2<CR>
+nnoremap <A-k>    :resize +2<CR>
+nnoremap <A-h>    :vertical resize -2<CR>
+nnoremap <A-l>    :vertical resize +2<CR>
 
 " I hate escape more than anything else
-inoremap jj <Esc>
+"inoremap jj <Esc>
 inoremap jk <Esc>
 inoremap kj <Esc>
 
@@ -50,8 +50,6 @@ nnoremap <S-TAB> :bprevious<CR>
 
 " Alternate way to save
 nnoremap <C-s> :w<CR>
-" Alternate way to quit
-nnoremap <C-Q> :wq!<CR>
 " Use control-c instead of escape
 " nnoremap <C-c> <Esc>
 " <TAB>: completion.
