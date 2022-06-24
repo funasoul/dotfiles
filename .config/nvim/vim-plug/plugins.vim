@@ -68,5 +68,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     " help Vim/Nvim users escape insert mode quickly using their customized key combinations, without experiencing the lag.
     Plug 'jdhao/better-escape.vim'
+    " View and search LSP symbols, tags in Vim/NeoVim. (outline)
+    Plug 'liuchengxu/vista.vim'
 
 call plug#end()
