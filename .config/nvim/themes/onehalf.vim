@@ -2,6 +2,7 @@ syntax on
 colorscheme onehalfdark
 " let g:airline_theme='onehalfdark'
 
+hi Normal guibg=NONE ctermbg=NONE
 
 " checks if your terminal has 24-bit color support
 if (has("termguicolors"))
