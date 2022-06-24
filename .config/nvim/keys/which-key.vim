@@ -48,15 +48,16 @@ let g:which_key_map['e'] = [ ':CocCommand explorer --toggle --sources=file+'   ,
 let g:which_key_map['f'] = [ ':Files'                                          , 'search files' ]
 let g:which_key_map['F'] = [ ':Rg'                                             , 'text Rg' ]
 let g:which_key_map['h'] = [ '<C-W>s'                                          , 'split below']
-let g:which_key_map['n'] = [ ':let @/ = ""'                                    , 'no highlight' ]
-let g:which_key_map['o'] = [ ':RnvimrToggle'                                   , 'open' ]
+" let g:which_key_map['n'] = [ ':let @/ = ""'                                    , 'no highlight' ]
+let g:which_key_map['n'] = [ ':set nonumber!'                                  , 'line-numbers' ]
+" let g:which_key_map['o'] = [ ':RnvimrToggle'                                   , 'open ranger' ]
 let g:which_key_map['p'] = [ ':AsyncTask project-run'                          , 'project run' ]
 let g:which_key_map['P'] = [ ':AsyncTask project-build'                        , 'project compile' ]
 let g:which_key_map['q'] = [ '<Plug>(coc-fix-current)'                         , 'quickfix' ]
-let g:which_key_map['T'] = [ ':FloatermNew --wintype=normal --height=10'       , 'terminal']
+let g:which_key_map['T'] = [ ':FloatermToggle'                                 , 'terminal']
 let g:which_key_map['u'] = [ ':UndotreeToggle'                                 , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                                          , 'split right']
-let g:which_key_map['W'] = [ ':call WindowSwap#EasyWindowSwap()'               , 'move window' ]
+" let g:which_key_map['W'] = [ ':call WindowSwap#EasyWindowSwap()'               , 'move window' ]
 " let g:which_key_map['z'] = [ ':Goyo'                                            , 'zen' ]
 
 " Group mappings
@@ -66,14 +67,12 @@ let g:which_key_map.a = {
       \ 'name' : '+actions' ,
       \ 'c' : [':ColorizerToggle'        , 'colorizer'],
       \ 'e' : [':CocCommand explorer'    , 'explorer'],
-      \ 'h' : [':let @/ = ""'            , 'remove search highlight'],
       \ 'l' : [':Bracey'                 , 'start live server'],
       \ 'L' : [':BraceyStop'             , 'stop live server'],
       \ 'm' : [':MarkdownPreview'        , 'markdown preview'],
       \ 'M' : [':MarkdownPreviewStop'    , 'markdown preview stop'],
       \ 'n' : [':set nonumber!'          , 'line-numbers'],
-      \ 's' : [':s/\%V\(.*\)\%V/"\1"/'   , 'surround'],
-      \ 'r' : [':set norelativenumber!'  , 'relative line nums'],
+      \ 'r' : [':set norelativenumber!'  , 'relative line-numbers'],
       \ 't' : [':FloatermToggle'         , 'terminal'],
       \ 'v' : [':Codi'                   , 'virtual repl on'],
       \ 'V' : [':Codi!'                  , 'virtual repl off'],
@@ -194,34 +193,34 @@ let g:which_key_map.m = {
 " s is for search
 let g:which_key_map.s = {
       \ 'name' : '+search' ,
-      \ '/' : [':History/'              , 'history'],
-      \ ';' : [':FzfPreviewCommandPalette'              , 'commands'],
-      \ 'a' : [':Ag'                    , 'text Ag'],
-      \ 'b' : [':CocCommand fzf-preview.BufferLines'                , 'current buffer'],
-      \ 'B' : [':CocCommand fzf-preview.Buffers'               , 'open buffers'],
-      \ 'c' : [':Commits'               , 'commits'],
-      \ 'C' : [':BCommits'              , 'buffer commits'],
-      \ 'd' : [':CocCommand fzf-preview.DirectoryFiles'              , 'directories'],
-      \ 'f' : [':CocCommand fzf-preview.ProjectFiles'                 , 'files'],
-      \ 'g' : [':CocCommand fzf-preview.GitFiles'                , 'git files'],
-      \ 'G' : [':GFiles?'               , 'modified git files'],
-      \ 'h' : [':History'               , 'file history'],
-      \ 'H' : [':History:'              , 'command history'],
-      \ 'l' : [':Lines'                 , 'lines'] ,
-      \ 'm' : [':CocCommand fzf-preview.Marks', 'list marks'],
-      \ 'M' : [':Maps'                  , 'normal maps'] ,
-      \ 'p' : [':Helptags'              , 'help tags'] ,
-      \ 'P' : [':Tags'                  , 'project tags'],
-      \ 'q' : [':CocCommand fzf-preview.QuickFix'                  , 'quickfix list'],
-      \ 's' : [':CocList snippets'      , 'snippets'],
-      \ 'S' : [':Colors'                , 'color schemes'],
-      \ 't' : [':Rg'                    , 'text Rg'],
-      \ 'T' : [':BTags'                 , 'buffer tags'],
-      \ 'w' : [':Windows'               , 'search windows'],
-      \ 'y' : [':Filetypes'             , 'file types'],
-      \ 'z' : [':FZF'                   , 'FZF'],
+      \ '/' : [':History/'                                 , 'history'],
+      \ ';' : [':FzfPreviewCommandPalette'                 , 'commands'],
+      \ 'a' : [':Ag'                                       , 'text Ag'],
+      \ 'b' : [':CocCommand fzf-preview.BufferLines'       , 'current buffer'],
+      \ 'B' : [':CocCommand fzf-preview.Buffers'           , 'open buffers'],
+      \ 'c' : [':Commits'                                  , 'commits'],
+      \ 'C' : [':BCommits'                                 , 'buffer commits'],
+      \ 'd' : [':CocCommand fzf-preview.DirectoryFiles'    , 'directories'],
+      \ 'f' : [':CocCommand fzf-preview.ProjectFiles'      , 'files'],
+      \ 'g' : [':CocCommand fzf-preview.GitFiles'          , 'git files'],
+      \ 'G' : [':GFiles?'                                  , 'modified git files'],
+      \ 'h' : [':History'                                  , 'file history'],
+      \ 'H' : [':History:'                                 , 'command history'],
+      \ 'l' : [':Lines'                                    , 'lines'] ,
+      \ 'm' : [':CocCommand fzf-preview.Marks'             , 'list marks'],
+      \ 'M' : [':Maps'                                     , 'normal maps'] ,
+      \ 'p' : [':Helptags'                                 , 'help tags'] ,
+      \ 'P' : [':Tags'                                     , 'project tags'],
+      \ 'q' : [':CocCommand fzf-preview.QuickFix'          , 'quickfix list'],
+      \ 's' : [':CocList snippets'                         , 'snippets'],
+      \ 'S' : [':Colors'                                   , 'color schemes'],
+      \ 't' : [':Rg'                                       , 'text Rg'],
+      \ 'T' : [':BTags'                                    , 'buffer tags'],
+      \ 'w' : [':Windows'                                  , 'search windows'],
+      \ 'y' : [':Filetypes'                                , 'file types'],
+      \ 'z' : [':FZF'                                      , 'FZF'],
       \ }
-" 
+"
 " :CocCommand fzf-preview.AllBuffers
 " :CocCommand fzf-preview.Changes
 " :CocCommand fzf-preview.Yankround
@@ -231,7 +230,7 @@ let g:which_key_map.s = {
 " :CocCommand fzf-preview.CocTypeDefinitions
 " \ 'l' : [':CocCommand fzf-preview.Bookmarks', 'list bookmarks'],
 " $FZF_PREVIEW_PREVIEW_BAT_THEME = 'ansi-dark'
-" 
+"
 let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'TwoDark'
 
 let g:which_key_map.S = {
@@ -274,9 +273,9 @@ let g:which_key_map.g = {
       \ }
       " \ 'A' : [':Git add %'                        , 'add current'],
       " \ 'S' : [':!git status'                      , 'status'],
-" 
-" 
-" 
+"
+"
+"
 
 let g:which_key_map.G = {
       \ 'name' : '+gist' ,
@@ -339,7 +338,7 @@ let g:which_key_map.l = {
 " t is for terminal
 let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
-      \ ';' : [':FloatermNew --wintype=normal --height=6'       , 'terminal'],
+      \ ';' : [':FloatermNew --wintype=normal --height=10'       , 'terminal'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
       \ 'b' : [':FloatermNew btm'                               , 'btm'],
       \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
