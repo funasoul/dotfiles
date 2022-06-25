@@ -1,5 +1,3 @@
-" Last Modified: Sat, 25 Jun 2022 10:22:19 +0900
-
 if !exists('g:vscode')
   source $HOME/.config/nvim/vim-plug/plugins.vim
 endif
