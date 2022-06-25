@@ -84,4 +84,5 @@ noremap <silent><f6> :AsyncTask project-run<cr>
 noremap <silent><f7> :AsyncTask project-build<cr>
 noremap <silent><f9> :AsyncTask file-build<cr>
 
+" FZF
 nnoremap <silent>;   :Commands<CR>
