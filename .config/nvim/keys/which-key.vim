@@ -51,6 +51,8 @@ let g:which_key_map['f'] = [ ':CocCommand fzf-preview.DirectoryFiles'          ,
 let g:which_key_map['F'] = [ ':Rg'                                             , 'text Rg' ]
 let g:which_key_map['g'] = [ ':CocCommand fzf-preview.GitActions'              , 'git actions' ]
 let g:which_key_map['h'] = [ '<C-W>s'                                          , 'split below']
+let g:which_key_map['i'] = [ ':IPythonCellExecuteCellJump'                     , 'ipython execute cell']
+let g:which_key_map['I'] = [ ':IPythonCellRun'                                 , 'ipython run']
 " let g:which_key_map['n'] = [ ':let @/ = ""'                                    , 'no highlight' ]
 let g:which_key_map['n'] = [ ':set nonumber!'                                  , 'line-numbers' ]
 " let g:which_key_map['o'] = [ ':RnvimrToggle'                                   , 'open ranger' ]
@@ -71,11 +73,13 @@ let g:which_key_map.a = {
       \ 'c' : [':ColorizerToggle'        , 'colorizer'],
       \ 'e' : [':CocCommand explorer'    , 'explorer'],
       \ 'g' : [':CocCommand fzf-preview.GitActions', 'git actions'],
+      \ 'i' : [':SlimeSend1 ipython --matplotlib'  , 'start ipython on right splitted tmux'],
       \ 'l' : [':Bracey'                 , 'start live server'],
       \ 'L' : [':BraceyStop'             , 'stop live server'],
       \ 'm' : [':MarkdownPreview'        , 'markdown preview'],
       \ 'M' : [':MarkdownPreviewStop'    , 'markdown preview stop'],
       \ 'n' : [':set nonumber!'          , 'line-numbers'],
+      \ 'q' : [':SlimeSend1 exit'        , 'ipython quit'],
       \ 'r' : [':set norelativenumber!'  , 'relative line-numbers'],
       \ 's' : [':Startify'               , 'start-screen'],
       \ 't' : [':FloatermToggle'         , 'terminal'],

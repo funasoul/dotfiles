@@ -73,5 +73,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jdhao/better-escape.vim'
     " View and search LSP symbols, tags in Vim/NeoVim. (outline)
     Plug 'liuchengxu/vista.vim'
+    " Seamlessly run Python code from Vim in IPython, including executing individual code cells similar to Jupyter notebooks and MATLAB.
+    Plug 'jpalardy/vim-slime', { 'for': 'python' }
+    Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 
 call plug#end()
