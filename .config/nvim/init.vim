@@ -1,3 +1,5 @@
+" init.vim
+
 if !exists('g:vscode')
   source $HOME/.config/nvim/vim-plug/plugins.vim
 endif
