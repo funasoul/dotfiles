@@ -73,7 +73,7 @@ let g:which_key_map.a = {
       \ 'c' : [':ColorizerToggle'        , 'colorizer'],
       \ 'e' : [':CocCommand explorer'    , 'explorer'],
       \ 'g' : [':CocCommand fzf-preview.GitActions', 'git actions'],
-      \ 'i' : [':SlimeSend1 ipython --matplotlib'  , 'start ipython on right splitted tmux'],
+      \ 'i' : [':call IPythonOpen()'     , 'start ipython on neovim terminal'],
       \ 'l' : [':Bracey'                 , 'start live server'],
       \ 'L' : [':BraceyStop'             , 'stop live server'],
       \ 'm' : [':MarkdownPreview'        , 'markdown preview'],
@@ -87,6 +87,7 @@ let g:which_key_map.a = {
       \ 'V' : [':Codi!'                  , 'virtual repl off'],
       \ 'w' : [':StripWhitespace'        , 'strip whitespace'],
       \ }
+      " \ 'i' : [':SlimeSend1 ipython --matplotlib'  , 'start ipython on right splitted tmux'],
 
 " b is for buffer
 let g:which_key_map.b = {
