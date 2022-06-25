@@ -27,6 +27,7 @@ if !exists('g:vscode')
   source $HOME/.config/nvim/plug-config/undotree.vim
   source $HOME/.config/nvim/plug-config/vista.vim
   source $HOME/.config/nvim/plug-config/ipython-cell.vim
+  source $HOME/.config/nvim/plug-config/barbar.vim
   " Lua files
   source $HOME/.config/nvim/plug-config/notify.lua
   " luafile $HOME/.config/nvim/lua/plug-colorizer.lua

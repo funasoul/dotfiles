@@ -76,5 +76,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Seamlessly run Python code from Vim in IPython, including executing individual code cells similar to Jupyter notebooks and MATLAB.
     Plug 'jpalardy/vim-slime', { 'for': 'python' }
     Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+    " for v0.7.0 or above
+    if has("nvim-0.7.0")
+      " Plug 'kyazdani42/nvim-web-devicons'   "we already have this by lualine"
+      Plug 'romgrk/barbar.nvim'
+    endif
 
 call plug#end()

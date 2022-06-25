@@ -103,7 +103,6 @@ let g:which_key_map.b = {
       \ '7' : [':BufferGoto 7'          , 'buffer 7'],
       \ '8' : [':BufferGoto 8'          , 'buffer 8'],
       \ '9' : [':BufferGoto 9'          , 'buffer 9'],
-      \ '0' : [':BufferGoto 0'          , 'buffer 0'],
       \ 'b' : [':BufferPick'            , 'pick buffer'],
       \ 'c' : [':bd'                    , 'close-buffer'],
       \ 'd' : [':Bdelete'               , 'delete-buffer'],
