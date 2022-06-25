@@ -16,6 +16,32 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
+" funa extension list
+let g:coc_global_extensions = [
+      \'coc-clangd',
+      \'coc-cmake',
+      \'coc-explorer',
+      \'coc-fzf-preview',
+      \'coc-git',
+      \'coc-go',
+      \'coc-html',
+      \'coc-java',
+      \'coc-json',
+      \'coc-lua',
+      \'coc-marketplace',
+      \'coc-perl',
+      \'coc-pyright',
+      \'coc-rust-analyzer',
+      \'coc-sh',
+      \'coc-snippets',
+      \'coc-sourcekit',
+      \'coc-tasks',
+      \'coc-tsserver',
+      \'coc-vimlsp',
+      \'coc-xml',
+      \'coc-yaml'
+      \]
+
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("nvim-0.5.0") || has("patch-8.1.1564")
@@ -150,24 +176,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " https://www.reddit.com/r/neovim/comments/qkkcwa/comment/i5fzxlh/?utm_source=share&utm_medium=web2x&context=3
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Mappings for CoCList
-" Show all diagnostics.
-" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-" nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-" nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
 " Explorer
 let g:coc_explorer_global_presets = {
 \   '.vim': {
@@ -223,4 +231,4 @@ let g:coc_snippet_prev = '<c-k>'
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
-:hi CocCodeLens guifg=White
+hi CocCodeLens guifg=White
