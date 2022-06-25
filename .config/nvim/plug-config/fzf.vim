@@ -19,12 +19,16 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " nnoremap <leader>t :Tags<CR>
 " nnoremap <leader>m :Marks<CR>
 
-
+" [Tags] Command to generate tags file
 let g:fzf_tags_command = 'ctags -R'
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'enter,ctrl-x'
+
 " Border color
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
-let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline '
+let $FZF_DEFAULT_OPTS .= $FZF_COMMON_MYKEYS
 let $FZF_DEFAULT_COMMAND="rg --files --hidden"
 
 
@@ -52,7 +56,7 @@ command! -bang -nargs=? -complete=dir Files
 " Get text in files with Rg
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   "rg --sort-files --column --line-number --no-heading --color=always --smart-case -g '!*autoload*' ".shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
 " Ripgrep advanced
