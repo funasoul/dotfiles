@@ -1,0 +1,2 @@
+# Use bash syntax for my zshrc custom file
+--map-syntax "*zshrc*:Bourne Again Shell (bash)"
