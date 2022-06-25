@@ -41,12 +41,15 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 let g:which_key_map['/'] = [ ':call Comment()'                                 , 'comment' ]
 let g:which_key_map['.'] = [ ':e $MYVIMRC'                                     , 'open init' ]
 let g:which_key_map[';'] = [ ':Commands'                                       , 'commands' ]
+let g:which_key_map[':'] = [ ':CocCommand fzf-preview.FromResources project_mru git', 'search project & git files' ]
 let g:which_key_map['='] = [ '<C-W>='                                          , 'balance windows' ]
+let g:which_key_map['B'] = [ ':CocCommand fzf-preview.Buffers'                 , 'buffers' ]
 let g:which_key_map['c'] = [ ':AsyncTask file-run'                             , 'run' ]
 let g:which_key_map['C'] = [ ':AsyncTask file-build'                           , 'compile' ]
 let g:which_key_map['e'] = [ ':CocCommand explorer --toggle --sources=file+'   , 'explorer' ]
-let g:which_key_map['f'] = [ ':Files'                                          , 'search files' ]
+let g:which_key_map['f'] = [ ':CocCommand fzf-preview.DirectoryFiles'          , 'search files' ]
 let g:which_key_map['F'] = [ ':Rg'                                             , 'text Rg' ]
+let g:which_key_map['g'] = [ ':CocCommand fzf-preview.GitActions'              , 'git actions' ]
 let g:which_key_map['h'] = [ '<C-W>s'                                          , 'split below']
 " let g:which_key_map['n'] = [ ':let @/ = ""'                                    , 'no highlight' ]
 let g:which_key_map['n'] = [ ':set nonumber!'                                  , 'line-numbers' ]
@@ -67,12 +70,14 @@ let g:which_key_map.a = {
       \ 'name' : '+actions' ,
       \ 'c' : [':ColorizerToggle'        , 'colorizer'],
       \ 'e' : [':CocCommand explorer'    , 'explorer'],
+      \ 'g' : [':CocCommand fzf-preview.GitActions', 'git actions'],
       \ 'l' : [':Bracey'                 , 'start live server'],
       \ 'L' : [':BraceyStop'             , 'stop live server'],
       \ 'm' : [':MarkdownPreview'        , 'markdown preview'],
       \ 'M' : [':MarkdownPreviewStop'    , 'markdown preview stop'],
       \ 'n' : [':set nonumber!'          , 'line-numbers'],
       \ 'r' : [':set norelativenumber!'  , 'relative line-numbers'],
+      \ 's' : [':Startify'               , 'start-screen'],
       \ 't' : [':FloatermToggle'         , 'terminal'],
       \ 'v' : [':Codi'                   , 'virtual repl on'],
       \ 'V' : [':Codi!'                  , 'virtual repl off'],
@@ -103,7 +108,7 @@ let g:which_key_map.b = {
       \ 'L' : [':BufferOrderByLanguage' , 'order by language'],
       \ 'n' : ['bnext'                  , 'next-buffer'],
       \ 'p' : ['bprevious'              , 'previous-buffer'],
-      \ '?' : ['Buffers'                , 'fzf-buffer'],
+      \ '?' : [':CocCommand fzf-preview.Buffers' , 'fzf-buffer'],
       \ }
 
 " d is for debug
@@ -151,6 +156,7 @@ let g:which_key_map.k = {
 " m is for mark
 let g:which_key_map.m = {
       \ 'name' : '+mark' ,
+      \ 'b' : [':CocCommand fzf-preview.Bookmarks', 'preview bookmarks'],
       \ 'c' : [':CocCommand bookmark.clearForCurrentFile', 'clear file'],
       \ 'C' : [':CocCommand bookmark.clearForAllFiles', 'clear project'],
       \ 'j' : [':CocCommand bookmark.next', 'next bookmark'],
@@ -160,42 +166,11 @@ let g:which_key_map.m = {
       " CoC throws an error
       " \ 'a' : [':CocCommand bookmark.annotate', 'annotate bookmark'],
 
-" " s is for search
-" let g:which_key_map.s = {
-"       \ 'name' : '+search' ,
-"       \ '/' : [':History/'              , 'history'],
-"       \ ';' : [':Commands'              , 'commands'],
-"       \ 'a' : [':Ag'                    , 'text Ag'],
-"       \ 'b' : [':BLines'                , 'current buffer'],
-"       \ 'B' : [':Buffers'               , 'open buffers'],
-"       \ 'c' : [':Commits'               , 'commits'],
-"       \ 'C' : [':BCommits'              , 'buffer commits'],
-"       \ 'f' : [':Files'                 , 'files'],
-"       \ 'g' : [':GFiles'                , 'git files'],
-"       \ 'G' : [':GFiles?'               , 'modified git files'],
-"       \ 'h' : [':History'               , 'file history'],
-"       \ 'H' : [':History:'              , 'command history'],
-"       \ 'l' : [':Lines'                 , 'lines'] ,
-"       \ 'm' : [':Marks'                 , 'marks'] ,
-"       \ 'M' : [':Maps'                  , 'normal maps'] ,
-"       \ 'p' : [':Helptags'              , 'help tags'] ,
-"       \ 'P' : [':Tags'                  , 'project tags'],
-"       \ 's' : [':CocList snippets'      , 'snippets'],
-"       \ 'S' : [':Colors'                , 'color schemes'],
-"       \ 't' : [':Rg'                    , 'text Rg'],
-"       \ 'T' : [':BTags'                 , 'buffer tags'],
-"       \ 'w' : [':Windows'               , 'search windows'],
-"       \ 'y' : [':Filetypes'             , 'file types'],
-"       \ 'z' : [':FZF'                   , 'FZF'],
-"       \ }
-      " \ 's' : [':Snippets'     , 'snippets'],
-
 " s is for search
 let g:which_key_map.s = {
       \ 'name' : '+search' ,
-      \ '/' : [':History/'                                 , 'history'],
-      \ ';' : [':FzfPreviewCommandPalette'                 , 'commands'],
-      \ 'a' : [':Ag'                                       , 'text Ag'],
+      \ '/' : [':CocCommand fzf-preview.OldFiles'          , 'history'],
+      \ ';' : [':CocCommand fzf-preview.CommandPalette'    , 'command history'],
       \ 'b' : [':CocCommand fzf-preview.BufferLines'       , 'current buffer'],
       \ 'B' : [':CocCommand fzf-preview.Buffers'           , 'open buffers'],
       \ 'c' : [':Commits'                                  , 'commits'],
@@ -204,9 +179,9 @@ let g:which_key_map.s = {
       \ 'f' : [':CocCommand fzf-preview.ProjectFiles'      , 'files'],
       \ 'g' : [':CocCommand fzf-preview.GitFiles'          , 'git files'],
       \ 'G' : [':GFiles?'                                  , 'modified git files'],
-      \ 'h' : [':History'                                  , 'file history'],
-      \ 'H' : [':History:'                                 , 'command history'],
-      \ 'l' : [':Lines'                                    , 'lines'] ,
+      \ 'h' : [':CocCommand fzf-preview.ProjectMruFiles'   , 'file history'],
+      \ 'H' : [':CocCommand fzf-preview.CommandPalette'    , 'command history'],
+      \ 'l' : [':CocCommand fzf-preview.Lines'             , 'lines'] ,
       \ 'm' : [':CocCommand fzf-preview.Marks'             , 'list marks'],
       \ 'M' : [':Maps'                                     , 'normal maps'] ,
       \ 'p' : [':Helptags'                                 , 'help tags'] ,
@@ -220,16 +195,10 @@ let g:which_key_map.s = {
       \ 'y' : [':Filetypes'                                , 'file types'],
       \ 'z' : [':FZF'                                      , 'FZF'],
       \ }
-"
 " :CocCommand fzf-preview.AllBuffers
 " :CocCommand fzf-preview.Changes
 " :CocCommand fzf-preview.Yankround
-" :CocCommand fzf-preview.CocReferences
-" :CocCommand fzf-preview.CocDiagnostics
-" :CocCommand fzf-preview.CocCurrentDiagnostics
-" :CocCommand fzf-preview.CocTypeDefinitions
 " \ 'l' : [':CocCommand fzf-preview.Bookmarks', 'list bookmarks'],
-" $FZF_PREVIEW_PREVIEW_BAT_THEME = 'ansi-dark'
 "
 let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'TwoDark'
 
@@ -245,8 +214,8 @@ let g:which_key_map.S = {
 " g is for git
 let g:which_key_map.g = {
       \ 'name' : '+git' ,
-      \ 'a' : [':Git add .'                        , 'add all'],
-      \ 'A' : [':CocCommand fzf-preview.GitStatus' , 'actions'],
+      \ 'a' : [':CocCommand fzf-preview.GitActions', 'actions'],
+      \ 'A' : [':Git add %'                        , 'add current file'],
       \ 'b' : [':Git blame'                        , 'blame'],
       \ 'B' : [':GBrowse'                          , 'browse'],
       \ 'c' : [':Git commit'                       , 'commit'],
@@ -264,8 +233,8 @@ let g:which_key_map.g = {
       \ 'p' : [':Git push'                         , 'push'],
       \ 'P' : [':Git pull'                         , 'pull'],
       \ 'r' : [':GRemove'                          , 'remove'],
-      \ 's' : ['<Plug>(GitGutterStageHunk)'        , 'stage hunk'],
-      \ 'S' : [':CocCommand fzf-preview.GitStatus' , 'status'],
+      \ 's' : [':CocCommand fzf-preview.GitStatus' , 'status'],
+      \ 'S' : ['<Plug>(GitGutterStageHunk)'        , 'stage hunk'],
       \ 't' : [':GitGutterSignsToggle'             , 'toggle signs'],
       \ 'u' : ['<Plug>(GitGutterUndoHunk)'         , 'undo hunk'],
       \ 'v' : [':GV'                               , 'view commits'],
@@ -291,8 +260,6 @@ let g:which_key_map.G = {
       \ }
 
 " l is for language server protocol
-" :CocCommand fzf-preview.CocReferences
-" :CocCommand fzf-preview.CocDiagnostics
 " :CocCommand fzf-preview.CocCurrentDiagnostics
 " :CocCommand fzf-preview.CocTypeDefinitions
 let g:which_key_map.l = {
