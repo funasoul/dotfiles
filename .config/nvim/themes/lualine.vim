@@ -14,7 +14,7 @@ require('lualine').setup {
     lualine_b = {'g:coc_status', 'branch', 'diff', 'b:coc_git_status',
                   {'diagnostics', sources={'coc'}}},
     lualine_c = {'filename', 'b:coc_git_blame'},
-    lualine_x = {'encoding',
+    lualine_x = {'getcwd', 'encoding',
                   {'fileformat',
                     symbols = {
                       unix = '', -- f30c
