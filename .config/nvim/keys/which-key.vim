@@ -173,7 +173,7 @@ let g:which_key_map.m = {
 " s is for search
 let g:which_key_map.s = {
       \ 'name' : '+search' ,
-      \ '/' : [':CocCommand fzf-preview.OldFiles'          , 'history'],
+      \ '/' : [':CocCommand fzf-preview.OldFiles'          , 'file history'],
       \ ';' : [':CocCommand fzf-preview.CommandPalette'    , 'command history'],
       \ 'b' : [':CocCommand fzf-preview.BufferLines'       , 'current buffer'],
       \ 'B' : [':CocCommand fzf-preview.Buffers'           , 'open buffers'],
@@ -183,7 +183,7 @@ let g:which_key_map.s = {
       \ 'f' : [':CocCommand fzf-preview.ProjectFiles'      , 'files'],
       \ 'g' : [':CocCommand fzf-preview.GitFiles'          , 'git files'],
       \ 'G' : [':GFiles?'                                  , 'modified git files'],
-      \ 'h' : [':CocCommand fzf-preview.ProjectMruFiles'   , 'file history'],
+      \ 'h' : [':CocCommand fzf-preview.ProjectMruFiles'   , 'MRU history'],
       \ 'H' : [':CocCommand fzf-preview.CommandPalette'    , 'command history'],
       \ 'l' : [':CocCommand fzf-preview.Lines'             , 'lines'] ,
       \ 'm' : [':CocCommand fzf-preview.Marks'             , 'list marks'],
