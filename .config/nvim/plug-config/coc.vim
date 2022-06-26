@@ -232,3 +232,8 @@ let g:coc_snippet_prev = '<c-k>'
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 hi CocCodeLens guifg=White
+
+" Highlight of background seems wrong with floating window.
+" onehalfdark needs this!
+" https://github.com/neoclide/coc.nvim/wiki/F.A.Q#highlight-of-background-seems-wrong-with-floating-window
+" hi link CocFloating Normal
