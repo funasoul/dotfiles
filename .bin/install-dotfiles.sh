@@ -15,7 +15,8 @@ reset=`tput sgr0`
 pushd $HOME
 
 # verify github SSH key
-if [ $(ssh -T git@github.com) != "1" ]; then
+ssh -T git@github.com
+if [ $? != "1"  ]; then
   echo "[${red}x${reset}] Please add your SSH key to github."
   return 1
 fi
