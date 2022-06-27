@@ -16,7 +16,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " OneDark theme
     Plug 'navarasu/onedark.nvim'
     " OneHalf theme
-    Plug 'sonph/onehalf', {'rtp': 'vim/'}
+    " Plug 'sonph/onehalf', {'rtp': 'vim/'}    " vim is not maintained anymore
+    " Fork of sonph/onehelf
+    Plug 'BBaoVanC/onehalf', {'rtp': 'vim/'}
     " NVCode theme
     Plug 'christianchiarulli/nvcode-color-schemes.vim'
     " Airline
