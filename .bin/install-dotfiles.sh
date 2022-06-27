@@ -12,6 +12,12 @@ reset=`tput sgr0`
 # Here we go.
 pushd $HOME
 
+# verify github SSH key
+if [ ! $(ssh -T git@github.com) ]; then
+  echo "[${red}x${reset}] Please add your SSH key to github."
+  return 1
+fi
+
 # (re)install oh-my-zsh
 if [ -d $HOME/.oh-my-zsh ]; then
   echo "Removing $HOME/.oh-my-zsh ..."
