@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# Original script: https://bitbucket.org/durdn/cfg/src/master/.bin/install.sh
+
 DOTFILES_REPO=git@github.com:funasoul/dotfiles.git
 DOTFILES_DIR=$HOME/.dotfiles
 DOTFILES_BACKUP=$HOME/.dotfiles-backup
