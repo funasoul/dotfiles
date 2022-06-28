@@ -18,6 +18,7 @@ pushd $HOME
 ssh -T git@github.com
 if [ $? != "1"  ]; then
   echo "[${red}x${reset}] Please add your SSH key to github."
+  popd
   return 1
 fi
 
