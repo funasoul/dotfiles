@@ -105,7 +105,7 @@ let g:which_key_map.b = {
       \ '9' : [':BufferGoto 9'          , 'buffer 9'],
       \ 'b' : [':BufferPick'            , 'pick buffer'],
       \ 'c' : [':bd'                    , 'close-buffer'],
-      \ 'd' : [':Bdelete'               , 'delete-buffer'],
+      \ 'd' : [':BufferDelete'          , 'delete-buffer'],
       \ 'D' : [':BufferOrderByDirectory', 'order by directory'],
       \ 'f' : ['bfirst'                 , 'first-buffer'],
       \ 'l' : ['blast'                  , 'last buffer'],
