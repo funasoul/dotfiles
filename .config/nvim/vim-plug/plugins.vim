@@ -12,7 +12,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " nvim-treesitter
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     " Auto pairs for '(' '[' '{'
-    Plug 'jiangmiao/auto-pairs'
+    " Plug 'jiangmiao/auto-pairs'
     " OneDark theme
     Plug 'navarasu/onedark.nvim'
     " OneHalf theme
@@ -67,6 +67,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'rcarriga/nvim-notify'
     " Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more
     Plug 'tpope/vim-surround'
+    " '.' will work with ds, cs, yss (from vim-surround)
+    Plug 'tpope/vim-repeat'
     " Display your undo history in a graph.
     Plug 'mbbill/undotree'
     " Vim Better Whitespace Plugin (:StripWhitespace)
