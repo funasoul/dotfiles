@@ -206,13 +206,26 @@ let g:which_key_map.s = {
 "
 let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'TwoDark'
 
+" Startify
+" let g:which_key_map.S = {
+"       \ 'name' : '+Session' ,
+"       \ 'c' : [':SClose'          , 'Close Session']  ,
+"       \ 'd' : [':SDelete'         , 'Delete Session'] ,
+"       \ 'l' : [':SLoad'           , 'Load Session']     ,
+"       \ 's' : [':Startify'        , 'Start Page']     ,
+"       \ 'S' : [':SSave'           , 'Save Session']   ,
+"       \ }
+
+" Surround
 let g:which_key_map.S = {
-      \ 'name' : '+Session' ,
-      \ 'c' : [':SClose'          , 'Close Session']  ,
-      \ 'd' : [':SDelete'         , 'Delete Session'] ,
-      \ 'l' : [':SLoad'           , 'Load Session']     ,
-      \ 's' : [':Startify'        , 'Start Page']     ,
-      \ 'S' : [':SSave'           , 'Save Session']   ,
+      \ 'name' : '+Surround' ,
+      \ 's' : ['<Plug>(Ysurround)'  , 'Surround "ys iw)}"']  ,
+      \ 'c' : ['<Plug>(Csurround)'  , 'Change surround "cs iw)}"']  ,
+      \ 'd' : ['<Plug>(Dsurround)'  , 'Delete surround "ds }"'] ,
+      \ 'l' : ['<Plug>(Yssurround)' , 'Surround line "yss }"'] ,
+      \ 't' : ['cst'                , 'Change surround tag'] ,
+      \ 'b' : ['<Plug>(Yssurround)i)' , 'Surround inside ) "yssi) }"'] ,
+      \ 'B' : ['<Plug>(Yssurround)i}' , 'Surround inside } "yssi} )"'] ,
       \ }
 
 " g is for git

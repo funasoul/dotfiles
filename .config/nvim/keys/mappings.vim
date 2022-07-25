@@ -86,3 +86,7 @@ noremap <silent><f9> :AsyncTask file-build<cr>
 
 " FZF
 nnoremap <silent>;   :Commands<CR>
+
+" Surround
+nmap s <Plug>Ysurround
+nmap S <Plug>Yssurround
