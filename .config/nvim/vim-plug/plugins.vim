@@ -21,11 +21,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'BBaoVanC/onehalf', {'rtp': 'vim/'}
     " NVCode theme
     Plug 'christianchiarulli/nvcode-color-schemes.vim'
+    " Nightfox
+    Plug 'EdenEast/nightfox.nvim'
     " Airline
     " Plug 'vim-airline/vim-airline'
     " Plug 'vim-airline/vim-airline-themes'
     " A blazing fast and easy to configure Neovim statusline written in Lua.
     Plug 'nvim-lualine/lualine.nvim'
+    " Transparent
+    Plug 'xiyaowong/nvim-transparent'
     Plug 'kyazdani42/nvim-web-devicons'
     " Stable version of coc
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -80,6 +84,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Seamlessly run Python code from Vim in IPython, including executing individual code cells similar to Jupyter notebooks and MATLAB.
     Plug 'jpalardy/vim-slime', { 'for': 'python' }
     Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+    " With pantran.nvim, you can use your favorite machine translation engines without having to leave your favorite editor.
+    Plug 'potamides/pantran.nvim'
     " for v0.7.0 or above
     if has("nvim-0.7.0")
       " Plug 'kyazdani42/nvim-web-devicons'   "we already have this by lualine"
