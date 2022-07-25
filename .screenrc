@@ -1,0 +1,87 @@
+startup_message off
+defflow off
+#defencoding eucJP
+defencoding UTF-8
+defgr off
+pastefont on
+escape ^q^q
+hardstatus off
+#hardstatus alwayslastline "%m/%d %D %c |%w"
+#hardstatus alwayslastline "%m/%d %D |%w"
+hardstatus alwayslastline
+# Last line is status: green hostname, window list in cyan, and time and date right aligned:
+hardstatus string "%{=b}%{G}%H: %{C}%w %=%{G}%D, %m/%d %C%a"
+#
+# This status is the same as the above, except it puts "<username>@" in front of the hostname
+#hardstatus alwayslastline "%{=b}%{G}Screen @ %0`@%H: %{C}%w %=%{G}%D, %m/%d"
+autodetach on
+vbell off
+#vbell_msg "   Wuff,  ----  Wuff!!  "
+
+bell "^GBell in window %."
+activity "Activity in window %."
+
+#crlf off
+#shelltitle $HOST
+defscrollback 3000
+msgwait 3
+#msgminwait 1
+##deflogin off
+ignorecase on
+
+register W "^q:hardcopy^M^q:screen w3m /cgi-bin/spliturl.cgi^M"
+bind W process W
+hardcopydir /export/home/funa/.screen
+
+#bind f
+bind r screen -ln -t root su -m
+bind s colon 'screen slogin '
+bind t title
+bind a other
+bind ^o focus
+bind ^k remove
+bind ! only
+bind @ split
+bind A screen -t authserv ssh authserv -l ssh
+bind B screen -t bucket -T screen slogin bucket
+bind C screen -t core slogin core
+bind D screen -t daemon -T screen slogin daemon
+bind F screen -t funasoul ssh funasoul
+#bind G screen -t gv ssh gv
+bind G screen -t core ssh coreg
+# ssh tunnel for scp from mini.
+#   use "ssh -p 2345 funa@localhost" to ssh login to mini
+#   use "scp -P 2345 funa@localhost:/path/to/file ."
+#   use 'rsync -auvze "ssh -p 2345" funa@localhost:/path/to/file .'
+#   use MacFusion to mount with sshfs using localhost:2345
+bind M screen -t mini-tunnel-2345 ssh -L 2345:mini:22 funa@ns
+# ssh tunnel for ssh to funasoul.
+#   use "ssh -p 2346 funa@localhost" to ssh login to funasoul
+#bind F screen -t funasoul-tunnel-2346 ssh -L 2346:funasoul:22 funa@ns
+#bind N screen -t ns ssh -L 1025:ns:25 ns
+#bind N screen -t ns ssh ns
+# for calling TextMate from remote
+#bind N screen -t ns sh -c "export TERM=screen; ssh -R 52698:localhost:52698 ns"
+bind N screen -t ns -T screen ssh -R 52698:localhost:52698 ns
+bind O screen -t odebu slogin odebu
+bind S screen -t symbio slogin daemon
+bind T screen -t tesla slogin tesla
+#  w3m http://localhost:10110/root/
+bind V screen -t corevnc ssh corevnc
+#bind W screen -t www ssh -L  8021:kongw:21 kongw
+bind Z screen -t zaurus slogin zaurus -l zaurus
+bind ^e select ebi
+bind ^f select funasoul
+bind ^h select home
+bind ^m select mail
+bind ^r select root
+
+bufferfile '/tmp/screen-exchange'
+#bindkey -m ' ' eval 'stuff " "' writebuf 'exec sh -c "pbcopy < /tmp/screen-exchange"'
+bindkey -m ' ' eval 'stuff \040' writebuf 'exec sh -c "pbcopy < /tmp/screen-exchange"'
+#bindkey -m 'y' eval 'stuff "Y"'  writebuf 'exec sh -c "pbcopy < /tmp/screen-exchange"'
+#bindkey -m 'w' eval 'stuff "W"'  writebuf 'exec sh -c "pbcopy < /tmp/screen-exchange"'
+
+#screen -ln -t root 1 su -m
+screen 1
+screen 0
