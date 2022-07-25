@@ -31,8 +31,8 @@ function! s:filter_header(lines) abort
 endfunction
 
 let g:startify_custom_header = s:filter_header([
-        \ '   _  __     _     ',
-        \ '  / |/ /  __(_)_ _ ',
+        \ '   _  __     _',
+        \ '  / |/ /  __(_)_ _',
         \ ' /    / |/ / /  ` \',
         \ '/_/|_/|___/_/_/_/_/',
         \])
