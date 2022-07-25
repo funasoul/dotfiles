@@ -14,6 +14,7 @@ if !exists('g:vscode')
   " source $HOME/.config/nvim/themes/nvcode.vim
   " source $HOME/.config/nvim/themes/airline.vim
   source $HOME/.config/nvim/themes/lualine.vim
+  source $HOME/.config/nvim/themes/nvim-transparent.vim
   source $HOME/.config/nvim/plug-config/asynctasks.vim
   source $HOME/.config/nvim/plug-config/better-escape.vim
   source $HOME/.config/nvim/plug-config/coc.vim
@@ -32,6 +33,7 @@ if !exists('g:vscode')
   source $HOME/.config/nvim/plug-config/barbar.vim
   " Lua files
   source $HOME/.config/nvim/plug-config/notify.lua
+  source $HOME/.config/nvim/plug-config/pantran.lua
   " luafile $HOME/.config/nvim/lua/plug-colorizer.lua
 
   " Which-key
