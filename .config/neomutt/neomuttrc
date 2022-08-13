@@ -1,0 +1,157 @@
+source ~/Dropbox/Sync/neomutt/password.rc
+
+# Paths
+set folder = "imaps://imap.gmail.com:993"
+set header_cache     = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+set alias_file       = ~/.config/neomutt/alias
+set mailcap_path     = ~/.config/neomutt/mailcap
+set signature        = ~/.config/neomutt/signature
+
+# Basic Options
+mailboxes =INBOX =[Gmail]/Sent\ Mail =[Gmail]/Drafts =[Gmail]/Spam =[Gmail]/Trash
+set spoolfile = "+INBOX"
+set ssl_starttls = yes # 受送信メールサーバまでの通信を暗号化
+set ssl_force_tls = yes
+set postponed = '"+[Gmail]/Drafts"'
+
+set header_cache_backend=lmdb
+set header_cache_compress_method=zlib
+# Performance Tuning
+# use very high $read_inc to speed up reading hcache'd maildirs
+folder-hook . 'set read_inc=1000'
+set crypt_use_gpgme=no
+
+set sleep_time = 0 # be faster
+set beep = no # no beep sound
+set mail_check = 60
+set timeout = 300
+set imap_keepalive = 900
+
+set hostname = gmail.com
+set use_from = yes
+set envelope_from = yes
+set reply_to                                     # reply to Reply to: field
+set include                                      # include message in reply
+
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set auto_tag = yes
+set editor = "nvim"
+set charset = "utf-8"
+unset move               # gmail does that
+unset record             # Gmails SMTP already copies emails to Sent folder
+
+# Pager
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+unset mark_old             # read/new is good enough for me
+
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+auto_view text/html
+
+# Header Options
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+alternative_order text/plain text/html *
+
+# Sidebar
+set sidebar_visible = yes
+set sidebar_width = 30
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+color sidebar_new color221 color233
+
+# Status
+set status_chars = " *%A"
+set status_format = "---[ Folder: %f ]---[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]---%>-%?p?( %p postponed )?---"
+
+# Index
+set arrow_cursor = yes
+set arrow_string = ">>"
+set date_format = "%m/%d"
+# set index_format = "[%Z] %D %-20.20F %s"
+# インデックスフォーマット デフォルト"%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+set index_format="%4C %Z %<[y?%<[d?%[%H:%M           ]&%[%m/%d (%a) %H:%M]>&%[%Y/%m/%d %H:%M]> %-15.15L (%?l?%4l&%4c?) %s"
+set sort = threads
+set sort_aux = reverse-last-date-received
+set uncollapse_jump
+set sort_re
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# Shortcuts
+bind  editor <space> noop
+bind  index,pager i  imap-fetch-mail
+bind  index,pager I  imap-fetch-mail
+bind  index,pager c  mail          # Compose
+bind  generic     x  tag-entry     # Select Conversation
+bind  index       x  tag-thread    # Select Conversation
+bind  pager       x  tag-message   # Select Conversation
+macro index,pager +  <save-message>=[Gmail]/Important<enter><enter> "Mark as important"
+macro index,pager !  <save-message>=[Gmail]/Spam<enter><enter> "Report spam"
+bind  index,pager a  group-reply   # Reply all
+bind  index,pager \Cf next-page
+bind  index,pager \Cb previous-page
+bind  index       H  top-page      # move to the top of the page
+bind  index       L  bottom-page   # move to the bottom of the page
+bind  index       M  middle-page   # move to the middle of the page
+
+bind  index,pager g noop
+bind  index gg first-entry
+bind  index G  last-entry
+#bind  index x  sync-mailbox
+bind  index <space>  collapse-thread
+bind  index <tab>      sync-mailbox
+bind  editor <Tab> complete-query
+bind  editor ^T complete
+
+# Sync email
+#macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+#macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+
+# Gmail-style keyboard shortcuts
+#macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+#macro index,pager e "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+#macro index,pager y "<save-message>=Archive<enter>" "GMail Archive Message"
+#macro index,pager e "<save-message>=Archive<enter>" "GMail Archive Message"
+macro index,pager y "<save-message>=[Gmail]/All<tab><enter><enter>" "Gmail Archive Message"
+macro index,pager e "<save-message>=[Gmail]/All<tab><enter><enter>" "Gmail Archive Message"
+macro index,pager \# "<enter-command>set trash=\"imaps://imap.googlemail.com/[Gmail]/Trash\"\n <delete-message>" "Gmail delete message"
+macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index,pager gI "<change-folder>=[Gmail]/Important<enter>" "Go to important messages"
+macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
+macro index,pager gb "<change-folder>=[Gmail]/Snoozed<enter>" "Go to snoozed messages"
+macro index,pager gt "<change-folder>=[Gmail]/Sent<tab><enter>" "Go to sent messages"
+macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro index,pager ga "<change-folder>=[Gmail]/All<tab><enter>" "Go to all mail"
+
+bind pager K previous-line
+bind pager J next-line
+bind pager gg  top
+bind pager G   bottom
+bind attach <return> view-mailcap # View attachments properly.
+
+# Sidebar Navigation
+bind index,pager B sidebar-toggle-visible # Use 'B' to switch the Sidebar on and off
+bind index,pager \Cp sidebar-prev # Ctrl-P – Previous Mailbox
+bind index,pager \Cn sidebar-next # Ctrl-N – Next Mailbox
+bind index,pager \Cj sidebar-open # Ctrl-J – Open Highlighted Mailbox
+bind index,pager \Co sidebar-open # Ctrl-J – Open Highlighted Mailbox
+
+# colors
+# source ~/.config/neomutt/colors.muttrc
+# Solarized Dark
+source ~/.config/neomutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
+# gruvbox
+# source ~/.config/neomutt/gruvbox/colors-gruvbox-shuber.muttrc
+# source ~/.config/neomutt/gruvbox/colors-gruvbox-shuber-extended.muttrc
+# wombat
+# source ~/.config/neomutt/vombatidae.neomuttrc

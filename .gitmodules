@@ -1,0 +1,6 @@
+[submodule ".config/neomutt/gruvbox"]
+	path = .config/neomutt/gruvbox
+	url = https://git.sthu.org/repos/mutt-gruvbox.git
+[submodule ".config/neomutt/mutt-colors-solarized"]
+	path = .config/neomutt/mutt-colors-solarized
+	url = https://github.com/altercation/mutt-colors-solarized.git
