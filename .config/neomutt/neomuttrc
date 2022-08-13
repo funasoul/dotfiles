@@ -144,7 +144,6 @@ bind index,pager B sidebar-toggle-visible # Use 'B' to switch the Sidebar on and
 bind index,pager \Cp sidebar-prev # Ctrl-P – Previous Mailbox
 bind index,pager \Cn sidebar-next # Ctrl-N – Next Mailbox
 bind index,pager \Cj sidebar-open # Ctrl-J – Open Highlighted Mailbox
-bind index,pager \Co sidebar-open # Ctrl-J – Open Highlighted Mailbox
 
 # colors
 # source ~/.config/neomutt/colors.muttrc
