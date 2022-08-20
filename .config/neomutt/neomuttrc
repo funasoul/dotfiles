@@ -10,7 +10,7 @@ set mailcap_path     = ~/.config/neomutt/mailcap
 set signature        = ~/.config/neomutt/signature
 
 # Basic Options
-mailboxes =INBOX =[Gmail]/Sent\ Mail =[Gmail]/Drafts =[Gmail]/Spam =[Gmail]/Trash
+mailboxes =INBOX =[Gmail]/Starred =[Gmail]/Important =[Gmail]/All\ Mail =[Gmail]/Sent\ Mail =[Gmail]/Drafts =[Gmail]/Spam =[Gmail]/Trash
 set spoolfile = "+INBOX"
 set ssl_starttls = yes # 受送信メールサーバまでの通信を暗号化
 set ssl_force_tls = yes
