@@ -1,39 +1,49 @@
 [user]
-	name = Akira Funahashi
-	email = funa@bio.keio.ac.jp
+  name = Akira Funahashi
+  email = funa@bio.keio.ac.jp
+
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
+
 [push]
-	default = simple
+  default = simple
+
 [http]
   sslVerify = false
-	postBuffer = 524288000
+  postBuffer = 524288000
+
 [core]
-	excludesfile = ~/Dropbox/Sync/.gitignore_global
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  excludesfile = ~/Dropbox/Sync/.gitignore_global
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+[add.interactive]
+  useBuiltin = false # required for git 2.37.0
+
+[delta]
+  hyperlinks = true
+  navigate = true    # use n and N to move between diff sections
+  side-by-side = true
+  syntax-theme = OneHalfDark
+
 [color]
-	ui = auto
+  ui = auto
+
 [commit]
-	template = ~/Dropbox/Sync/.gitCommitMsg
+  template = ~/Dropbox/Sync/.gitCommitMsg
+
 [alias]
-	lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
+  lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
+
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
 [merge]
-  tool = vimdiff
-[mergetool]
-  prompt = true
-[mergetool "vimdiff"]
-  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-[difftool]
-  prompt = false
+  conflictstyle = diff3
+
 [diff]
-  tool = vimdiff
+  colorMoved = default
