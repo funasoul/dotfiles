@@ -15,7 +15,7 @@ URxvt.fading:               5
 !! funa
 urxvt.iso14755:             false
 urxvt.pastableTabs:         false
-urxvt.perl-ext-common:      xim-onthespot,font-size
+urxvt.perl-ext-common:      xim-onthespot,font-size,selection-to-clipboard,clipboard
 urxvt.inputMethod:          ibus
 urxvt.preeditType:          OnTheSpot
 URxvt.keysym.M-plus:        font-size:increase
@@ -25,6 +25,9 @@ URxvt.keysym.M-S-plus:      font-size:incglobal
 URxvt.keysym.M-S-minus:     font-size:decglobal
 URxvt.keysym.M-0:           font-size:reset
 URxvt.keysym.M-slash:       font-size:show
+URxvt.clipboard.autocopy:   true
+URxvt.keysym.M-c:           perl:clipboard:copy
+URxvt.keysym.M-v:           perl:clipboard:paste
 
 !! Font list and Spacing
 URxvt.font:     xft:Cica:size=14:antialias=true
