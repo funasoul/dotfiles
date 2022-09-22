@@ -15,7 +15,7 @@ URxvt.fading:               5
 !! funa
 urxvt.iso14755:             false
 urxvt.pastableTabs:         false
-urxvt.perl-ext-common:      xim-onthespot,font-size,selection-to-clipboard,clipboard
+urxvt.perl-ext-common:      xim-onthespot,font-size,selection-to-clipboard
 urxvt.inputMethod:          ibus
 urxvt.preeditType:          OnTheSpot
 URxvt.keysym.M-plus:        font-size:increase
@@ -30,10 +30,12 @@ URxvt.keysym.M-c:           perl:clipboard:copy
 URxvt.keysym.M-v:           perl:clipboard:paste
 
 !! Font list and Spacing
-URxvt.font:     xft:Cica:size=14:antialias=true
-/* URxvt.font:     xft:Monaco Nerd Font Mono:size=14:antialias=true */
+!URxvt.font:     xft:Cica:size=14:antialias=true:autohint-=true
+!URxvt.font:     xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true
+URxvt.font:     xft:Monaco Nerd Font Mono:pixelsize=14:antialias=true:autohint=true
 !URxvt.font:    xft:Dejavu Sans Mono-14,xft:IPAGothic
 URxvt.letterSpace:          -1
+URxvt.lineSpace:            3
 
 !!! Color Scheme and Opacity - gruvbox-dark https://github.com/morhetz/gruvbox
 !URxvt.depth:                32
