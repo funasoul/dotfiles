@@ -50,7 +50,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym Shift+space exec --no-startup-id /usr/local/bin/dmenu_run
+# bindsym Shift+space exec --no-startup-id /usr/local/bin/dmenu_run
+bindsym Shift+space exec --no-startup-id /usr/local/bin/rofi -show run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -153,7 +154,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Tab focus next
 bindsym $mod+Shift+Tab focus prev
 
-bindsym $mod+Control+e [class="URxvt"] focus
+# bindsym $mod+Control+e [class="URxvt"] focus
 bindsym $mod+Control+h [class="Chromium-browser"] focus
 
 bindsym XF86AudioRaiseVolume exec "sndioctl 'output.level=+0.1'"
@@ -229,3 +230,8 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+#exec --no-startup-id /usr/local/bin/urxvt
+exec --no-startup-id urxvt -name 'scratchpad_urxvt' -g 1900x1060
+for_window [instance="scratchpad_urxvt"] move to scratchpad, border 1pixel
+bindsym $mod+Control+e [instance="scratchpad_urxvt"] scratchpad show, move position 0px 0px
