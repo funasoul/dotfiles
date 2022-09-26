@@ -41,6 +41,10 @@ set $refresh_i3status pkill -SIGUSR1 polybar
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# no title bar! https://gist.github.com/lirenlin/9892945
+default_border pixel 1
+default_floating_border pixel 1
+
 # start a terminal
 # bindsym $mod+Return exec /usr/X11R6/bin/xterm
 # bindsym $mod+Return exec /usr/local/bin/gnome-terminal
