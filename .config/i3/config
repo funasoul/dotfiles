@@ -45,6 +45,23 @@ floating_modifier $mod
 default_border pixel 3
 default_floating_border pixel 3
 
+# gaps
+gaps top 5
+gaps bottom 5
+gaps right 5
+gaps left 5
+gaps inner 5
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #e06c75   #56b6c2
+# client.focused          #4c7899 #285577 #ffffff #e06c75   #dcdfe4
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
 # start a terminal
 # bindsym $mod+Return exec /usr/X11R6/bin/xterm
 # bindsym $mod+Return exec /usr/local/bin/gnome-terminal
@@ -89,7 +106,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym $mod+h split h
+bindsym $mod+g split h
 
 # split in vertical orientation
 bindsym $mod+Shift+v split v
@@ -236,13 +253,6 @@ bindsym $mod+r mode "resize"
 # bar {
         # status_command i3status
 # }
-
-# gaps
-gaps top 5
-gaps bottom 5
-gaps right 5
-gaps left 5
-gaps inner 5
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # exec --no-startup-id /usr/local/bin/urxvt
