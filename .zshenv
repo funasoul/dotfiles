@@ -120,6 +120,7 @@ $HOME/.local/nvim/bin \
 /usr/local/anaconda3/bin \
 /Applications/MacPorts/Emacs.app/Contents/MacOS \
 /Applications/MacPorts/Emacs.app/Contents/MacOS/bin \
+/Applications/MacPorts/kitty.app/Contents/MacOS \
 /Applications/Emacs.app/Contents/MacOS \
 /Applications/Emacs.app/Contents/MacOS/bin \
 /Applications/Onivim2.app/Contents/MacOS \
