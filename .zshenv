@@ -128,6 +128,7 @@ $HOME/.local/nvim/bin \
 /bin /usr/bin /sbin /usr/sbin \
 /usr/local/infer-osx-v0.17.0/bin \
 /usr/local/arm-apple-darwin/bin \
+/usr/share/tmux-plugin-manager/ \
 )
 
 # for my path
