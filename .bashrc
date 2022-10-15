@@ -52,3 +52,6 @@ export PYTHONSTARTUP=$HOME/.pythonrc.py
 if [ -e $HOME/.config/broot/launcher/bash/br ]; then
   source $HOME/.config/broot/launcher/bash/br
 fi
+if [ -e $HOME/.cargo/env ]; then
+  . "$HOME/.cargo/env"
+fi
