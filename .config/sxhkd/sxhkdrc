@@ -1,0 +1,75 @@
+# terminal emulator
+alt + Return
+	kitty
+
+# program launcher
+shift + @space
+  rofi -show run
+
+# make sxhkd reload its configuration files:
+alt + Escape
+	pkill -USR1 -x sxhkd
+
+# quit/restart bspwm
+alt + shift + {q,r}
+	bspc {quit,wm -r}
+
+# close
+alt + q
+	bspc node -c
+
+# next/prev window
+alt + {_,shift + }Tab
+  bspc node --focus {next,prev}
+
+# swap the current node and the biggest window
+alt + g
+	bspc node -s biggest.window
+
+# focus/move the node in the given direction
+alt + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west, south,north,east}
+
+# focus the next/previous desktop in the current monitor
+#alt + {_,shift + }Tab
+#	bspc desktop -f {prev,next}.local
+
+# resize
+alt + ctrl + {h,j,k,l}
+	bspc node -z {left -80 0,bottom 0 80,top 0 -80,right 80 0}
+
+alt + ctrl + shift + {h,j,k,l}
+	bspc node -z {right -80 0,top 0 80,bottom 0 -80,left 80 0}
+
+# focus or send to the given desktop
+alt + {_,shift + }{1-9,0}
+	bspc {desktop --focus,node --to-desktop} 'focused:^{1-9,10}'
+
+# Visor like terminal (see: ~/.config/bspwm/bspwmrc)
+# https://www.reddit.com/r/bspwm/comments/85hr4c/making_a_scratchpaddropdown_terminal_in_bspwm/
+alt + ctrl + e
+  $HOME/.config/bspwm/scratchtermtoggle.sh
+
+# Volume, Brightness control
+XF86AudioRaiseVolume
+  sndioctl 'output.level=+0.1'
+XF86AudioLowerVolume
+  sndioctl 'output.level=-0.1'
+XF86AudioMute
+  sndioctl 'output.mute=!'
+XF86MonBrightnessDown
+  xbacklight -dec 10
+XF86MonBrightnessUp
+  xbacklight -inc 10
+
+# my OpenBSD does not recognize XF86Audio* and XF86MonBrightness*
+F1
+  sndioctl 'output.mute=!'
+F2
+  sndioctl 'output.level=-0.1'
+F3
+  sndioctl 'output.level=+0.1'
+F4
+  xbacklight -dec 10
+F5
+  xbacklight -inc 10
