@@ -284,7 +284,8 @@ type = internal/date
 
 interval = 0.5
 
-time = %Y-%m-%d(%a)   %I:%M:%S %p
+;time = %Y-%m-%d(%a)   %I:%M:%S %p
+time = %Y-%m-%d(%a)   %H:%M:%S
 time-alt = %B %d, %Y
 
 format = <label>
