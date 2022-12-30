@@ -114,6 +114,7 @@ $HOME/.local/nvim/bin \
 /usr/local/cuda/bin \
 /usr/local/w3m/bin \
 /usr/local/bin \
+/usr/local/sbin \
 /opt/local/bin \
 /opt/local/sbin \
 /usr/X11R6/bin \
