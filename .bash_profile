@@ -12,14 +12,14 @@ PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH
 
 ### colors
-red="\[$(tput setaf 1)\]"
-green="\[$(tput setaf 2)\]"
-yellow="\[$(tput setaf 3)\]"
-blue="\[$(tput setaf 4)\]"
-purple="\[$(tput setaf 5)\]"
-cyan="\[$(tput setaf 6)\]"
-white="\[$(tput setaf 7)\]"
-reset="\[$(tput sgr0)\]"
+#red="\[$(tput setaf 1)\]"
+#green="\[$(tput setaf 2)\]"
+#yellow="\[$(tput setaf 3)\]"
+#blue="\[$(tput setaf 4)\]"
+#purple="\[$(tput setaf 5)\]"
+#cyan="\[$(tput setaf 6)\]"
+#white="\[$(tput setaf 7)\]"
+#reset="\[$(tput sgr0)\]"
 
 ### prompt
 function prompt() {
@@ -48,11 +48,11 @@ function prompt() {
   PS1="\[${Save}\e[${COLUMNS}C\e[${#PS1RHS_stripped}D${PS1RHS}${Rest}\]${PS1}"
 }
 
-PROMPT_COMMAND=prompt
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#PROMPT_COMMAND=prompt
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 
 ## broot: A better way to navigate directories
 if [ -e $HOME/.config/broot/launcher/bash/br ]; then
