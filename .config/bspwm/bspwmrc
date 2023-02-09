@@ -8,7 +8,8 @@ screenwidth=$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $3}')
 screenheight=$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $4}')
 kitty --name='scratchpad_kitty' &
 # bspc rule -a kitty:scratchpad_kitty sticky=on state=floating hidden=on
-bspc rule -a kitty:scratchpad_kitty sticky=on state=floating hidden=on rectangle=$(( ${screenwidth}-12 ))x$(( ${screenheight}-48 ))+0+34
+# bspc rule -a kitty:scratchpad_kitty sticky=on state=floating hidden=on rectangle=$(( ${screenwidth}-12 ))x$(( ${screenheight}-48 ))+0+34
+bspc rule -a kitty:scratchpad_kitty sticky=on state=floating hidden=on rectangle=$(( ${screenwidth}-12 ))x$(( ${screenheight}-72 ))+0+34
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
