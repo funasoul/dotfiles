@@ -1,6 +1,6 @@
 " funa's ~/.vimrc tested on Vim-6.1
 " ----------------------------------------------
-" Last modified: Mon, 27 Jun 2022 15:37:19 +0900
+" Last modified: Sat, 29 Oct 2022 11:52:04 +0900
 " ----------------------------------------------
 
 " vi との互換性OFF
@@ -18,7 +18,7 @@ endif
 " To use NeoBundle
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
+  call neobundle#rc(expand('~/.vim-local/bundle/'))
 endif
 " I want to use these Bundles
 " How to install Bundles:
