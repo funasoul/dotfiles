@@ -11,6 +11,10 @@ hardstatus off
 hardstatus alwayslastline
 # Last line is status: green hostname, window list in cyan, and time and date right aligned:
 hardstatus string "%{=b}%{G}%H: %{C}%w %=%{G}%D, %m/%d %C%a"
+# termcap https://superuser.com/a/461492
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# truecolor
+truecolor on
 #
 # This status is the same as the above, except it puts "<username>@" in front of the hostname
 #hardstatus alwayslastline "%{=b}%{G}Screen @ %0`@%H: %{C}%w %=%{G}%D, %m/%d"
@@ -79,6 +83,7 @@ bind ^r select root
 bufferfile '/tmp/screen-exchange'
 #bindkey -m ' ' eval 'stuff " "' writebuf 'exec sh -c "pbcopy < /tmp/screen-exchange"'
 bindkey -m ' ' eval 'stuff \040' writebuf 'exec sh -c "pbcopy < /tmp/screen-exchange"'
+bindkey -m '' eval 'stuff \040' writebuf 'exec sh -c "pbcopy < /tmp/screen-exchange"'
 #bindkey -m 'y' eval 'stuff "Y"'  writebuf 'exec sh -c "pbcopy < /tmp/screen-exchange"'
 #bindkey -m 'w' eval 'stuff "W"'  writebuf 'exec sh -c "pbcopy < /tmp/screen-exchange"'
 
