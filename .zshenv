@@ -111,6 +111,7 @@ _path=( \
 #/Developer/NVIDIA/CUDA-5.0/bin \
 $HOME/.local/bin \
 $HOME/.local/nvim/bin \
+$HOME/go/bin \
 /usr/local/cuda/bin \
 /usr/local/w3m/bin \
 /usr/local/bin \
