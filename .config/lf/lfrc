@@ -31,7 +31,7 @@ set shellopts '-eu'
 set ifs "\n"
 
 # Use the `dim` attribute instead of underline for the cursor in the preview pane
-set cursorpreviewfmt "\033[7;2m"
+#set cursorpreviewfmt "\033[7;2m"
 
 map R :reload; recol; cfg_reload
 
