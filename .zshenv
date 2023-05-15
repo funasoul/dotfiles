@@ -126,6 +126,7 @@ $HOME/go/bin \
 /Applications/Emacs.app/Contents/MacOS \
 /Applications/Emacs.app/Contents/MacOS/bin \
 /Applications/Onivim2.app/Contents/MacOS \
+/Applications/LibreOffice.app/Contents/MacOS \
 #/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin \   # includes space in the path may not work with launchagent
 /bin /usr/bin /sbin /usr/sbin \
 /usr/local/infer-osx-v0.17.0/bin \
