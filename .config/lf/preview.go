@@ -177,12 +177,7 @@ func generatePreview(cache string, opts previewOpts) string {
 		}
 		return opts.fp
 	case opts.mime == "application/pdf":
-		runOutput(`pdftoppm -f 1 -l 1 \
-		  -scale-to-x %d              \
-		  -scale-to-y -1              \
-		  -singlefile                 \
-		  -jpeg -tiffcompression jpeg \
-		  -- "%s" "%s"`, cacheImageWidth, opts.fp, strings.TrimSuffix(cache, ".jpg"))
+		runOutput(`pdftoppm -f 1 -l 1 -scale-to-x %d -scale-to-y -1 -singlefile -jpeg -tiffcompression jpeg -- "%s" "%s"`, cacheImageWidth, opts.fp, strings.TrimSuffix(cache, ".jpg"))
 		return cache
 	case opts.ext == ".drawio":
 		drawio := "/Applications/draw.io.app/Contents/MacOS/draw.io"
