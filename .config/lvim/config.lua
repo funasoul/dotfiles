@@ -11,7 +11,8 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
+-- lvim.colorscheme = "onedarker"
+lvim.colorscheme = "onehalfdark"
 lvim.debug = false
 lvim.transparent_window = true
 -- vim settings
@@ -25,6 +26,7 @@ vim.opt.wrapscan = false
 vim.opt.shiftround = true
 vim.opt.showmatch = true
 vim.opt.timeoutlen = 100
+
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
