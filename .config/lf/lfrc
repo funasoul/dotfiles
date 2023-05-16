@@ -1,5 +1,5 @@
 # single column on small panes
-$[ $lf_width -le 80 ] && lf -remote "send $id :set nopreview; set ratios 1" || exit 0
+#$[ $lf_width -le 80 ] && lf -remote "send $id :set nopreview; set ratios 1" || exit 0
 
 set shell sh
 # "latest modified first"
@@ -171,7 +171,7 @@ cmd deleteImmediately ${{
 
 cmd on-quit ${{
     # replace or append ' register
-    ~/.config/lf/mark-on-quit.go "${f%/*}"
+    # ~/.config/lf/mark-on-quit.go "${f%/*}"
     # marks=$HOME/.local/share/lf/marks
     # grep -q -e "^':.*$" $marks
     # if [ $? -eq 0 ]; then
