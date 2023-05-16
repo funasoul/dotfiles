@@ -15,7 +15,7 @@ lvim.colorscheme = "onedarker"
 lvim.debug = false
 lvim.transparent_window = true
 -- vim settings
-vim.opt.backup = false -- creates a backup file
+vim.opt.backup = false      -- creates a backup file
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
 vim.opt.clipboard = ""
 vim.opt.mouse = ""
@@ -24,6 +24,7 @@ vim.opt.incsearch = false
 vim.opt.wrapscan = false
 vim.opt.shiftround = true
 vim.opt.showmatch = true
+vim.opt.timeoutlen = 100
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -99,7 +100,7 @@ lvim.builtin.which_key.mappings["t"] = {
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
+-- lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 
@@ -181,18 +182,7 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
---     {"folke/tokyonight.nvim"},
-  {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-    end
-  },
+  --     {"folke/tokyonight.nvim"},
   {
     "kevinhwang91/rnvimr",
     cmd = "RnvimrToggle",
@@ -220,7 +210,7 @@ lvim.plugins = {
       "Glgrep",
       "Gedit"
     },
-    ft = {"fugitive"}
+    ft = { "fugitive" }
   },
   {
     "ahmedkhalf/lsp-rooter.nvim",
@@ -243,7 +233,7 @@ lvim.plugins = {
   { "mhinz/vim-signify" },
   {
     "michaelb/sniprun",
-    run = "bash ./install.sh",
+    build = "bash ./install.sh",
   },
 }
 
