@@ -21,11 +21,17 @@ vim.opt.writebackup = false -- if a file is being edited by another program (or 
 vim.opt.clipboard = ""
 vim.opt.mouse = ""
 vim.opt.backspace = { "start", "eol", "indent" }
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.infercase = true -- 補完時に大文字小文字を区別しない
 vim.opt.incsearch = false
 vim.opt.wrapscan = false
 vim.opt.shiftround = true
 vim.opt.showmatch = true
 vim.opt.timeoutlen = 100
+
+-- C, C++
+require('c_cpp')
 
 -- Additional Plugins
 lvim.plugins = {
@@ -197,6 +203,8 @@ lvim.plugins = {
     "nvim-neotest/neotest",
     "nvim-neotest/neotest-python",
   },
+  -- C, C++
+  { "p00f/clangd_extensions.nvim" },
 }
 
 
