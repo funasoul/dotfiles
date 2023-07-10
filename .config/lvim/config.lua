@@ -56,8 +56,6 @@ lvim.plugins = {
         border = "rounded",
         -- highlights = {FloatBorder = {guifg = require("kimbox.palette").colors.magenta}}
       })
-
-      vim.keymap.set("n", "<C-o>", ":Lf<CR>")
     end,
     dependencies = { "plenary.nvim", "toggleterm.nvim" }
   },
@@ -172,7 +170,35 @@ lvim.plugins = {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
+  -- Telescope plugins
+  -- -- use native fzf for search
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build = 'make',
+    config = function()
+      require('telescope').setup {
+        extensions = {
+          fzf = {
+            fuzzy = true,                   -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true,    -- override the file sorter
+            case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+            -- the default case_mode is "smart_case"
+          }
+        }
+      }
+    end,
+  },
   -- General
+  --  lua version of better_escape.vim, with some additional features and optimizations
+  {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup {
+        mapping = { "jk", "kj" },
+      }
+    end,
+  },
   -- -- Sniprun is a code runner plugin for neovim written in Lua and Rust
   {
     "michaelb/sniprun",
@@ -223,6 +249,7 @@ lvim.keys.normal_mode["<C-j>"] = "<cmd>lua require 'gitsigns'.next_hunk({navigat
 lvim.keys.normal_mode["<C-k>"] = "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>"
 lvim.keys.normal_mode["<C-c>c"] = ":'<,'>SnipRun<CR>"
 lvim.keys.normal_mode["<C-c><C-c>"] = ":%SnipRun<CR>"
+
 vim.cmd([[
   map P "zp
   map -1 "1p
@@ -248,6 +275,9 @@ vim.cmd([[
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
+-- Telescope fzf plugin
+require('telescope').load_extension('fzf')
+
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 -- local _, actions = pcall(require, "telescope.actions")
@@ -268,8 +298,8 @@ vim.cmd([[
 
 -- Use which-key to add extra bindings with the leader-key prefix
 -- python virtualenv
-lvim.builtin.which_key.mappings["C"] = {
-  name = "Python",
+lvim.builtin.which_key.mappings["V"] = {
+  name = "Virtual env",
   c = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose virtualenv" },
 }
 lvim.builtin.which_key.mappings["lR"] = { "<cmd>LspRestart<cr>", "Restart LSP" }
@@ -285,7 +315,7 @@ lvim.builtin.which_key.mappings["dF"] = {
   "<cmd>lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>", "Test Class DAP" }
 lvim.builtin.which_key.mappings["dS"] = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Test Summary" }
 
--- lvim.builtin.which_key.mappings["o"] = { "<cmd>RnvimrToggle<CR>", "open" }
+lvim.builtin.which_key.mappings["F"] = { "<cmd>Telescope live_grep<CR>", "Find text" }
 lvim.builtin.which_key.mappings["o"] = { "<cmd>:Lf<cr>", "open" }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["S"] = { "<cmd>SymbolsOutline<CR>", "SymbolsOutline" }
@@ -415,3 +445,22 @@ require("neotest").setup({
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
+
+-- Insert timestamp after "Last Modified: "
+vim.cmd([[
+  "" Insert timestamp after 'Last Modified: '
+  " If buffer modified, update any 'Last Modified: ' in the first 200 lines.
+  " 'Last Modified: ' can have up to 10 characters before (they are retained).
+  " Restores cursor and window position using save_cursor variable.
+  function! LastModified()
+    if &modified
+      let save_cursor = getpos(".")
+      let n = min([200, line("$")])
+      keepjumps exe '1,' . n . 's#^\(.\{,10}Last [Mm]odified: \).*#\1' .
+            \ strftime('%a, %d %b %Y %H:%M:%S %z') . '#e'
+      call histdel('search', -1)
+      call setpos('.', save_cursor)
+    endif
+  endfun
+  autocmd BufWritePre * call LastModified()
+]])
