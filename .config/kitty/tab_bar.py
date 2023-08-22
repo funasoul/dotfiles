@@ -1,3 +1,4 @@
+# thanks to https://github.com/kovidgoyal/kitty/discussions/4447#discussioncomment-3240635
 # pyright: reportMissingImports=false
 from datetime import datetime
 from kitty.boss import get_boss
@@ -19,7 +20,8 @@ icon_bg = as_rgb(color_as_int(opts.color8))
 bat_text_color = as_rgb(color_as_int(opts.color15))
 clock_color = as_rgb(color_as_int(opts.color15))
 date_color = as_rgb(color_as_int(opts.color8))
-SEPARATOR_SYMBOL, SOFT_SEPARATOR_SYMBOL = ("", "")
+#SEPARATOR_SYMBOL, SOFT_SEPARATOR_SYMBOL = ("", "")
+SEPARATOR_SYMBOL, SOFT_SEPARATOR_SYMBOL = ("", "")
 RIGHT_MARGIN = 1
 REFRESH_TIME = 1
 ICON = "  "
