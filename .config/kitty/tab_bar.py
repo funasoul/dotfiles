@@ -23,6 +23,7 @@ icon_bg = as_rgb(color_as_int(opts.color8))
 bat_text_color = as_rgb(color_as_int(opts.color15))
 clock_color = as_rgb(color_as_int(opts.color15))
 date_color = as_rgb(color_as_int(opts.color8))
+ssid_color = as_rgb(color_as_int(opts.color14))
 #SEPARATOR_SYMBOL, SOFT_SEPARATOR_SYMBOL = ("", "")
 SEPARATOR_SYMBOL, SOFT_SEPARATOR_SYMBOL = ("", "")
 RIGHT_MARGIN = 1
@@ -143,7 +144,7 @@ def get_battery_cells() -> list:
                 percent = int(f.read())
         elif sys.platform == 'darwin':
             result = subprocess.run(['pmset', '-g', 'batt'], stdout=subprocess.PIPE)
-            p = re.compile("(\\d+)%.* (not charging|discharging|charging)")
+            p = re.compile("(\\d+)%.* (not charging|discharging|charging|charged)")
             res = p.search(result.stdout.decode('utf-8'))
             if res is not None:
                 percent = int(res.group(1))
@@ -182,6 +183,22 @@ def get_battery_cells() -> list:
         return []
 
 
+def get_ssid() -> str:
+    ssid = ""
+    if sys.platform == 'linux':
+        # TODO implement!
+        ssid = ""
+    elif sys.platform == 'darwin':
+        # XXX this slows down the responce time of your kitty!
+        result = subprocess.run(['/System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport', '-I'], stdout=subprocess.PIPE)
+        p = re.compile("SSID: (.*)\n")
+        res = p.search(result.stdout.decode('utf-8'))
+        if res is not None:
+            ssid = res.group(1)
+
+    return ssid
+
+
 timer_id = None
 right_status_length = -1
 
@@ -201,7 +218,9 @@ def draw_tab(
         timer_id = add_timer(_redraw_tab_bar, REFRESH_TIME, True)
     clock = datetime.now().strftime(" %H:%M")
     date = datetime.now().strftime(" %Y-%m-%d(%a)")
+    ssid = " " + get_ssid()
     cells = get_battery_cells()
+    cells.append((ssid_color, ssid))
     cells.append((clock_color, clock))
     cells.append((date_color, date))
     right_status_length = RIGHT_MARGIN
