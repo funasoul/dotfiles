@@ -1,5 +1,8 @@
 # thanks to https://github.com/kovidgoyal/kitty/discussions/4447#discussioncomment-3240635
 # pyright: reportMissingImports=false
+import re
+import subprocess
+import sys
 from datetime import datetime
 from kitty.boss import get_boss
 from kitty.fast_data_types import Screen, add_timer, get_options
@@ -130,12 +133,27 @@ def _redraw_tab_bar(_):
 
 
 def get_battery_cells() -> list:
+    percent = 0
+    status = 'N/A'
     try:
-        with open("/sys/class/power_supply/BAT0/status", "r") as f:
-            status = f.read()
-        with open("/sys/class/power_supply/BAT0/capacity", "r") as f:
-            percent = int(f.read())
-        if status == "Discharging\n":
+        if sys.platform == 'linux':
+            with open("/sys/class/power_supply/BAT0/status", "r") as f:
+                status = f.read()
+            with open("/sys/class/power_supply/BAT0/capacity", "r") as f:
+                percent = int(f.read())
+        elif sys.platform == 'darwin':
+            result = subprocess.run(['pmset', '-g', 'batt'], stdout=subprocess.PIPE)
+            p = re.compile("(\\d+)%.* (not charging|discharging|charging)")
+            res = p.search(result.stdout.decode('utf-8'))
+            if res is not None:
+                percent = int(res.group(1))
+                status = res.group(2)
+        else:
+            status = 'N/A'
+            percent = 0
+
+
+        if status == "Discharging\n" or status == "discharging":
             # TODO: declare the lambda once and don't repeat the code
             icon_color = UNPLUGGED_COLORS[
                 min(UNPLUGGED_COLORS.keys(), key=lambda x: abs(x - percent))
@@ -143,7 +161,7 @@ def get_battery_cells() -> list:
             icon = UNPLUGGED_ICONS[
                 min(UNPLUGGED_ICONS.keys(), key=lambda x: abs(x - percent))
             ]
-        elif status == "Not charging\n":
+        elif status == "Not charging\n" or status == "not charging":
             icon_color = UNPLUGGED_COLORS[
                 min(UNPLUGGED_COLORS.keys(), key=lambda x: abs(x - percent))
             ]
