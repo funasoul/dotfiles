@@ -117,6 +117,7 @@ class TermColors(dict):
         if os.environ.get("TERM") in (
             "xterm-color",
             "xterm-256color",
+            "xterm-kitty",
             "linux",
             "screen",
             "screen-256color",
