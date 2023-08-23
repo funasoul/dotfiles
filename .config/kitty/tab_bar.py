@@ -194,7 +194,7 @@ def get_ssid() -> str:
         p = re.compile("SSID: (.*)\n")
         res = p.search(result.stdout.decode('utf-8'))
         if res is not None:
-            ssid = res.group(1)
+            ssid = " " + res.group(1)
 
     return ssid
 
@@ -218,7 +218,7 @@ def draw_tab(
         timer_id = add_timer(_redraw_tab_bar, REFRESH_TIME, True)
     clock = datetime.now().strftime(" %H:%M")
     date = datetime.now().strftime(" %Y-%m-%d(%a)")
-    ssid = " " + get_ssid()
+    ssid = get_ssid()
     cells = get_battery_cells()
     cells.append((ssid_color, ssid))
     cells.append((clock_color, clock))
