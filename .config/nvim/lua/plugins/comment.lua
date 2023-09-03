@@ -1,3 +1,6 @@
+if true then
+  return {}
+end
 return {
   --  Smart and Powerful commenting plugin for neovim
   {
