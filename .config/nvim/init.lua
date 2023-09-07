@@ -1,6 +1,6 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.backspace = { "start", "eol", "indent" }
@@ -34,7 +34,7 @@ vim.cmd([[
 vim.cmd([[
  "" Insert timestamp after 'Last Modified: '
  " If buffer modified, update any 'Last Modified: ' in the first 200 lines.
- " 'Last Modified: Sat, 15 Jul 2023 23:38:22 +0900
+ " 'Last Modified: Fri, 08 Sep 2023 00:04:50 +0900
  " Restores cursor and window position using save_cursor variable.
  function! LastModified()
    if &modified
