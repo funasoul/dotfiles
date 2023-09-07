@@ -39,3 +39,13 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- <C-n>, <C-p> will jump to next/previous error
 vim.keymap.set("n", "<C-n>", "<cmd>lua vim.diagnostic.goto_next{wrap = false}<cr>")
 vim.keymap.set("n", "<C-p>", "<cmd>lua vim.diagnostic.goto_prev{wrap = false}<cr>")
+
+-- Move Lines
+if vim.fn.has("macunix") then
+  vim.keymap.set("n", "∆", "<cmd>m .+1<cr>==", { desc = "Move down" })
+  vim.keymap.set("n", "˚", "<cmd>m .-2<cr>==", { desc = "Move up" })
+  vim.keymap.set("i", "∆", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+  vim.keymap.set("i", "˚", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+  vim.keymap.set("v", "∆", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+  vim.keymap.set("v", "˚", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+end
