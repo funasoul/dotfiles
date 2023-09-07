@@ -8,9 +8,9 @@ vim.keymap.set("n", "-1", '"1p')
 vim.keymap.set("n", "-2", '"2p')
 vim.keymap.set("n", "-3", '"3p')
 vim.keymap.set("n", "-4", '"4p')
-vim.keymap.set("n", "--", "mz\"zy'k'z")
-vim.keymap.set("n", "-=", "mz\"zd'k'z")
-vim.keymap.set("n", "-y", "zy'k")
+vim.keymap.set("n", "--", "mz\"zy'k`z")
+vim.keymap.set("n", "-=", "mz\"zd'k`z")
+vim.keymap.set("n", "-y", '"zy`k')
 vim.keymap.set("c", "<C-p>", "<Up>")
 vim.keymap.set("c", "<C-n>", "<Down>")
 vim.keymap.set("c", "<C-b>", "<Left>")
@@ -32,6 +32,9 @@ vim.keymap.set(
   "<cmd>noh<cr><cmd>set clipboard=unnamedplus<cr><esc>",
   { desc = "Escape and clear hlsearch" }
 )
+
+-- don't change the cursor position on "J"
+vim.keymap.set("n", "J", "mzJ`z")
 
 -- <C-n>, <C-p> will jump to next/previous error
 vim.keymap.set("n", "<C-n>", "<cmd>lua vim.diagnostic.goto_next{wrap = false}<cr>")
