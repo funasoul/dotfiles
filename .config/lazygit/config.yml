@@ -1,0 +1,4 @@
+gui:
+  nerdFontsVersion: "3"
+  authorColors:
+    'Akira Funahashi': '#77d3bf' # use light green for my commit
