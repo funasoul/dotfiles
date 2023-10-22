@@ -49,3 +49,32 @@ if vim.fn.has("macunix") then
   vim.keymap.set("v", "∆", ":m '>+1<cr>gv=gv", { desc = "Move down" })
   vim.keymap.set("v", "˚", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 end
+
+-- Compile & execute code
+-- https://github.com/n-crespo/nvim-config/blob/7a5768cc69ce66b4706ee9d515102cc66d054f2b/lua/config/keymaps.lua#L36
+local Util = require("lazyvim.util")
+
+vim.api.nvim_create_user_command("FloatingTerm", function()
+  Util.terminal.open()
+end, {})
+
+vim.keymap.set(
+  "n",
+  "<leader>Rp",
+  [[:set autochdir<CR>:w<CR>:FloatingTerm <CR> python <C-\><C-n>"#pi<CR> ]],
+  { silent = true, desc = "Run [P]ython File" }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>Rj",
+  [[:set autochdir<CR>:w<CR>:FloatingTerm<CR>javac <C-\><C-n>"#pi && java <C-\><C-n>"#pi<BS><BS><BS><BS><BS><CR> ]],
+  { silent = true, desc = "Run [J]ava File" }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>Rc",
+  [[:set autochdir<CR>:w<CR>:FloatingTerm <CR> g++ -o <C-\><C-n>"#pi<BS><BS><BS><BS> <C-\><C-n>"#pi && ./<C-\><C-n>"#pi<BS><BS><BS><BS><CR> ]],
+  { desc = "Run [C]++ File", silent = true }
+)
