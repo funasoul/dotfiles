@@ -24,6 +24,7 @@ vim.keymap.set("n", "*", "<cmd>keepjumps normal! mi*`i<cr>")
 
 -- do not inject to system clipboard on "c"
 vim.keymap.set("n", "c", '<cmd>set clipboard=""<cr>c')
+vim.keymap.set("n", "C", '<cmd>set clipboard=""<cr>C')
 
 -- Clear search and reset clipboard to unnamedplus with <esc>
 vim.keymap.set(
