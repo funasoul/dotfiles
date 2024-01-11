@@ -11,10 +11,9 @@ def main(args: List[str]) -> str:
     # get the last accessed window id
     id_file = os.path.expanduser('~') + '/.config/kitty/last_window_id.txt'
     f = open(id_file, "r")
-    if f is not None:
-        window_id = f.read()
+    window_id = f.read()
 
-    return window_id 
+    return window_id
 
 def handle_result(args: List[str], answer: str, target_window_id: int, boss: Boss) -> None:
     # get the kitty window into which to paste answer
