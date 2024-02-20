@@ -1,3 +1,4 @@
 .dotfiles
 .dotfiles-backup
 .config/nvim/lazy-lock.json
+.config/kitty/last_window_id.txt
