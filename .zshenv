@@ -122,6 +122,7 @@ $HOME/go/bin \
 /usr/local/anaconda3/bin \
 /Applications/MacPorts/Emacs.app/Contents/MacOS \
 /Applications/MacPorts/Emacs.app/Contents/MacOS/bin \
+/Applications/kitty.app/Contents/MacOS \
 /Applications/MacPorts/kitty.app/Contents/MacOS \
 /Applications/Emacs.app/Contents/MacOS \
 /Applications/Emacs.app/Contents/MacOS/bin \
