@@ -1,7 +1,7 @@
 #
 #	~/.zlogin
 #
-echo -n '        .zlogin' 1>&2
+##echo -n '        .zlogin' 1>&2
 
 #
 # setup for modem
@@ -25,7 +25,7 @@ if [ $OSTYPE = "linux-gnu" ]; then
   export TERM=screen-256color
 fi
 
-echo -n . 1>&2
+##echo -n . 1>&2
 #
 # set display
 #
@@ -38,7 +38,7 @@ export TITLE=$CONSOLE
 #	export DISPLAY=$CONSOLE:0
 #fi
 
-echo . 1>&2
+##echo . 1>&2
 #
 # pyenv
 # It is almost certainly better to add it to your profile / login shell only, and not your rc.
