@@ -18,31 +18,39 @@ from kitty.tab_bar import (
 )
 
 opts = get_options()
-icon_fg = as_rgb(color_as_int(opts.color16))
+# icon_fg = as_rgb(color_as_int(opts.color16))
+icon_fg = as_rgb(0xF2AA65)
 icon_bg = as_rgb(color_as_int(opts.color8))
 bat_text_color = as_rgb(color_as_int(opts.color15))
 clock_color = as_rgb(color_as_int(opts.color15))
 date_color = as_rgb(color_as_int(opts.color8))
 ssid_color = as_rgb(color_as_int(opts.color14))
-#SEPARATOR_SYMBOL, SOFT_SEPARATOR_SYMBOL = ("", "")
+# SEPARATOR_SYMBOL, SOFT_SEPARATOR_SYMBOL = ("", "")
 SEPARATOR_SYMBOL, SOFT_SEPARATOR_SYMBOL = ("", "")
 RIGHT_MARGIN = 1
 REFRESH_TIME = 1
-ICON = "  "
+if sys.platform.startswith("linux"):
+    ICON = "  "
+elif sys.platform == "darwin":
+    ICON = " 󰀵 "
+else:
+    ICON = " 󰣠 "
+
+
 UNPLUGGED_ICONS = {
-    10: "",
-    20: "",
-    30: "",
-    40: "",
-    50: "",
-    60: "",
-    70: "",
-    80: "",
-    90: "",
-    100: "",
+    10: "󰁺",
+    20: "󰁻",
+    30: "󰁼",
+    40: "󰁽",
+    50: "󰁾",
+    60: "󰁿",
+    70: "󰂀",
+    80: "󰂁",
+    90: "󰂂",
+    100: "󰁹",
 }
 PLUGGED_ICONS = {
-    1: "",
+    1: "󰂄",
 }
 UNPLUGGED_COLORS = {
     15: as_rgb(color_as_int(opts.color1)),
@@ -135,24 +143,23 @@ def _redraw_tab_bar(_):
 
 def get_battery_cells() -> list:
     percent = 0
-    status = 'N/A'
+    status = "N/A"
     try:
-        if sys.platform == 'linux':
+        if sys.platform == "linux":
             with open("/sys/class/power_supply/BAT0/status", "r") as f:
                 status = f.read()
             with open("/sys/class/power_supply/BAT0/capacity", "r") as f:
                 percent = int(f.read())
-        elif sys.platform == 'darwin':
-            result = subprocess.run(['pmset', '-g', 'batt'], stdout=subprocess.PIPE)
+        elif sys.platform == "darwin":
+            result = subprocess.run(["pmset", "-g", "batt"], stdout=subprocess.PIPE)
             p = re.compile("(\\d+)%.* (not charging|discharging|charging|charged)")
-            res = p.search(result.stdout.decode('utf-8'))
+            res = p.search(result.stdout.decode("utf-8"))
             if res is not None:
                 percent = int(res.group(1))
                 status = res.group(2)
         else:
-            status = 'N/A'
+            status = "N/A"
             percent = 0
-
 
         if status == "Discharging\n" or status == "discharging":
             # TODO: declare the lambda once and don't repeat the code
@@ -185,14 +192,20 @@ def get_battery_cells() -> list:
 
 def get_ssid() -> str:
     ssid = ""
-    if sys.platform == 'linux':
+    if sys.platform == "linux":
         # TODO implement!
         ssid = ""
-    elif sys.platform == 'darwin':
+    elif sys.platform == "darwin":
         # XXX this slows down the responce time of your kitty!
-        result = subprocess.run(['/System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport', '-I'], stdout=subprocess.PIPE)
+        result = subprocess.run(
+            [
+                "/System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport",
+                "-I",
+            ],
+            stdout=subprocess.PIPE,
+        )
         p = re.compile("SSID: (.*)\n")
-        res = p.search(result.stdout.decode('utf-8'))
+        res = p.search(result.stdout.decode("utf-8"))
         if res is not None:
             ssid = " " + res.group(1)
 
@@ -201,6 +214,7 @@ def get_ssid() -> str:
 
 timer_id = None
 right_status_length = -1
+
 
 def draw_tab(
     draw_data: DrawData,
@@ -218,9 +232,9 @@ def draw_tab(
         timer_id = add_timer(_redraw_tab_bar, REFRESH_TIME, True)
     clock = datetime.now().strftime(" %H:%M")
     date = datetime.now().strftime(" %Y-%m-%d(%a)")
-    ssid = get_ssid()
+    # ssid = get_ssid()
     cells = get_battery_cells()
-    cells.append((ssid_color, ssid))
+    # cells.append((ssid_color, ssid))
     cells.append((clock_color, clock))
     cells.append((date_color, date))
     right_status_length = RIGHT_MARGIN
