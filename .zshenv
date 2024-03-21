@@ -57,6 +57,12 @@ case $OSTYPE in
   darwin21.*)
 	export HOST_TYPE=MacOS_Monterey
 	;;
+  darwin22.*)
+	export HOST_TYPE=MacOS_Ventura
+	;;
+  darwin23.*)
+	export HOST_TYPE=MacOS_Sonoma
+	;;
   netbsd*)
 	export HOST_TYPE=netbsd
 	;;
