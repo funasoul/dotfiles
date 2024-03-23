@@ -53,7 +53,14 @@ ZSH_CUSTOM=$HOME/Dropbox/Sync/zsh/custom
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(ant docker docker-compose git git-extras github gitignore macports mosh mvn osx pyenv screen themes)
 #plugins=(ant docker docker-compose git gitignore macports mvn osx pyenv screen themes)
-plugins=(ant docker docker-compose git gitignore git-extras gradle macos macports mvn screen themes)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  plugins=(ant docker docker-compose git gitignore git-extras gradle macos macports mvn themes)
+elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+  plugins=(ant docker docker-compose git gitignore git-extras gradle mvn themes ubuntu)
+else
+  plugins=(ant docker docker-compose git gitignore git-extras gradle mvn themes)
+fi
+
 
 # User configuration
 
