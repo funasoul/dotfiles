@@ -30,7 +30,7 @@ SEPARATOR_SYMBOL, SOFT_SEPARATOR_SYMBOL = ("", "")
 RIGHT_MARGIN = 1
 REFRESH_TIME = 1
 if sys.platform.startswith("linux"):
-    ICON = "  "
+    ICON = "  "
 elif sys.platform == "darwin":
     ICON = " 󰀵 "
 else:
@@ -193,8 +193,11 @@ def get_battery_cells() -> list:
 def get_ssid() -> str:
     ssid = ""
     if sys.platform == "linux":
-        # TODO implement!
-        ssid = ""
+        result = subprocess.run(
+            ["iwgetid", "-r"],
+            stdout=subprocess.PIPE,
+        )
+        ssid = " " + result.stdout.decode("utf-8")
     elif sys.platform == "darwinXXX":
         # XXX this slows down the responce time of your kitty!
         result = subprocess.run(
