@@ -19,7 +19,7 @@ from kitty.tab_bar import (
 
 opts = get_options()
 # icon_fg = as_rgb(color_as_int(opts.color16))
-icon_fg = as_rgb(0xF2AA65)
+icon_fg = as_rgb(0x42F4C5)
 icon_bg = as_rgb(color_as_int(opts.color8))
 bat_text_color = as_rgb(color_as_int(opts.color15))
 clock_color = as_rgb(color_as_int(opts.color15))
@@ -150,7 +150,7 @@ def get_battery_cells() -> list:
                 status = f.read()
             with open("/sys/class/power_supply/BAT0/capacity", "r") as f:
                 percent = int(f.read())
-        elif sys.platform == "darwin":
+        elif sys.platform == "darwinXXX":
             result = subprocess.run(["pmset", "-g", "batt"], stdout=subprocess.PIPE)
             p = re.compile("(\\d+)%.* (not charging|discharging|charging|charged)")
             res = p.search(result.stdout.decode("utf-8"))
@@ -195,7 +195,7 @@ def get_ssid() -> str:
     if sys.platform == "linux":
         # TODO implement!
         ssid = ""
-    elif sys.platform == "darwin":
+    elif sys.platform == "darwinXXX":
         # XXX this slows down the responce time of your kitty!
         result = subprocess.run(
             [
@@ -232,9 +232,9 @@ def draw_tab(
         timer_id = add_timer(_redraw_tab_bar, REFRESH_TIME, True)
     clock = datetime.now().strftime(" %H:%M")
     date = datetime.now().strftime(" %Y-%m-%d(%a)")
-    # ssid = get_ssid()
+    ssid = get_ssid()
     cells = get_battery_cells()
-    # cells.append((ssid_color, ssid))
+    cells.append((ssid_color, ssid))
     cells.append((clock_color, clock))
     cells.append((date_color, date))
     right_status_length = RIGHT_MARGIN
