@@ -57,6 +57,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   plugins=(ant docker docker-compose git gitignore git-extras gradle macos macports mvn themes)
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
   plugins=(ant docker docker-compose git gitignore git-extras gradle mvn themes ubuntu)
+elif [[ "$OSTYPE" == "openbsd"* ]]; then
+  plugins=(ant git gitignore git-extras gradle mvn themes)
+elif [[ "$OSTYPE" == "freebsd"* ]]; then
+  plugins=(ant git gitignore git-extras gradle mvn themes)
 else
   plugins=(ant docker docker-compose git gitignore git-extras gradle mvn themes)
 fi
