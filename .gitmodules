@@ -7,3 +7,6 @@
 [submodule ".config/yazi/flavors"]
 	path = .config/yazi/flavors
 	url = https://github.com/yazi-rs/flavors.git
+[submodule ".config/yazi/plugins/ouch.yazi"]
+	path = .config/yazi/plugins/ouch.yazi
+	url = https://github.com/ndtoan96/ouch.yazi.git
