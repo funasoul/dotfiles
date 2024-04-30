@@ -7,6 +7,7 @@ sort_reverse = true
 
 [preview]
 max_width = 1280
+max_height = 1280
 
 [plugin]
 prepend_previewers = [
