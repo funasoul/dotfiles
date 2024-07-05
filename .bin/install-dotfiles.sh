@@ -46,6 +46,7 @@ if [ $? = 0 ]; then
     mkdir -p $DOTFILES_BACKUP/.bin
     mkdir -p $DOTFILES_BACKUP/.config/bat
     mkdir -p $DOTFILES_BACKUP/.config/lvim
+    mkdir -p $DOTFILES_BACKUP/.config/neofetch
     mkdir -p $DOTFILES_BACKUP/.config/nvim/general
     mkdir -p $DOTFILES_BACKUP/.config/nvim/keys
     mkdir -p $DOTFILES_BACKUP/.config/nvim/lua
