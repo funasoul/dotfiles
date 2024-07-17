@@ -9,8 +9,8 @@ return {
     },
     keys = {
       {
-        "gw",
         mode = { "n", "x" },
+        "<leader>cW",
         function()
           require("wtf").ai()
         end,
@@ -18,7 +18,7 @@ return {
       },
       {
         mode = { "n" },
-        "gW",
+        "<leader>cw",
         function()
           require("wtf").search()
         end,
