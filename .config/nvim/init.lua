@@ -10,22 +10,21 @@ vim.opt.wrapscan = false
 vim.opt.shiftround = true
 vim.opt.showmatch = true
 
--- Insert timestamp after "Last Modified: "
-vim.cmd([[
- "" Insert timestamp after 'Last Modified: '
- " If buffer modified, update any 'Last Modified: ' in the first 200 lines.
- " 'Last Modified: Fri, 08 Sep 2023 01:12:05 +0900
- " Restores cursor and window position using save_cursor variable.
- function! LastModified()
-   if &modified
-     let save_cursor = getpos(".")
-     let n = min([200, line("$")])
-     keepjumps exe '1,' . n . 's#^\(.\{,10}Last [Mm]odified: \).*#\1' .
-           \ strftime('%a, %d %b %Y %H:%M:%S %z') . '#e'
-     call histdel('search', -1)
-     call setpos('.', save_cursor)
-   endif
- endfun
- autocmd BufWritePre * call LastModified()
-]])
---   ]])
+-- Insert timestamp after "Last Modified: Wed, 17 Jul 2024 17:48:56 +0900
+local function LastModified()
+  if vim.bo.modified then
+    local save_cursor = vim.fn.getpos(".")
+    local n = math.min(200, vim.fn.line("$"))
+    local pattern = [[\%(.\{,10}Last [Mm]odified: \)\zs.*]]
+    local replacement = os.date("%a, %d %b %Y %H:%M:%S %z")
+
+    vim.cmd(string.format("keepjumps silent! 1,%ds#%s#%s#e", n, pattern, replacement))
+    vim.fn.histdel("search", -1)
+    vim.fn.setpos(".", save_cursor)
+  end
+end
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = LastModified,
+})
