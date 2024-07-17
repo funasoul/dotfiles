@@ -1,5 +1,8 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
+-- load my custom functions
+require("custom.functions")
+-- my options
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.backspace = { "start", "eol", "indent" }
