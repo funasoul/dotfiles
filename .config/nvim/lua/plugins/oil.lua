@@ -1,6 +1,3 @@
-if true then
-  return {}
-end
 return {
   -- A vim-vinegar like file explorer that lets you edit your filesystem like a normal Neovim buffer.
   {
