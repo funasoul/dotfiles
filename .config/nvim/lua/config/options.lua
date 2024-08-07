@@ -6,7 +6,8 @@ vim.opt.writebackup = false
 vim.opt.backspace = { "start", "eol", "indent" }
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.incsearch = false
 vim.opt.wrapscan = false
 vim.opt.shiftround = true
 vim.opt.showmatch = true
+-- bug: Setting `incsearch` to false makes characters not visible when searching with `/`.
+vim.opt.incsearch = true
