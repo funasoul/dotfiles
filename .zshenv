@@ -117,6 +117,7 @@ _path=( \
 #/Developer/NVIDIA/CUDA-5.0/bin \
 $HOME/.local/bin \
 $HOME/.local/nvim/bin \
+$HOME/.cache/lm-studio/bin \
 $HOME/go/bin \
 /usr/local/cuda/bin \
 /usr/local/w3m/bin \
@@ -139,6 +140,7 @@ $HOME/go/bin \
 /usr/local/infer-osx-v0.17.0/bin \
 /usr/local/arm-apple-darwin/bin \
 /usr/share/tmux-plugin-manager/ \
+$HOME/.egit/.venv/bin \
 )
 
 # for my path
