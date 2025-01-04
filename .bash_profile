@@ -62,3 +62,6 @@ if [ -e $HOME/.cargo/env ]; then
   . "$HOME/.cargo/env"
 fi
 
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/funa/.cache/lm-studio/bin"
