@@ -45,6 +45,7 @@ if [ $? = 0 ]; then
     # dirty hack.
     mkdir -p $DOTFILES_BACKUP/.bin
     mkdir -p $DOTFILES_BACKUP/.config/bat
+    mkdir -p $DOTFILES_BACKUP/.config/lazygit
     mkdir -p $DOTFILES_BACKUP/.config/lvim
     mkdir -p $DOTFILES_BACKUP/.config/neofetch
     mkdir -p $DOTFILES_BACKUP/.config/nvim/general
