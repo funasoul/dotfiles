@@ -48,24 +48,29 @@ if [ $? = 0 ]; then
     mkdir -p $DOTFILES_BACKUP/.config/bspwm
     mkdir -p $DOTFILES_BACKUP/.config/ctpv
     mkdir -p $DOTFILES_BACKUP/.config/i3
-    mkdir -p $DOTFILES_BACKUP/.config/kitty
+    mkdir -p $DOTFILES_BACKUP/.config/kitty/kitty_grab
+    mkdir -p $DOTFILES_BACKUP/.config/kitty/themes
     mkdir -p $DOTFILES_BACKUP/.config/lazygit
     mkdir -p $DOTFILES_BACKUP/.config/lf
-    mkdir -p $DOTFILES_BACKUP/.config/lvim
+    mkdir -p $DOTFILES_BACKUP/.config/lvim/lua
+    mkdir -p $DOTFILES_BACKUP/.config/mpv
     mkdir -p $DOTFILES_BACKUP/.config/neofetch
     mkdir -p $DOTFILES_BACKUP/.config/neomutt
     mkdir -p $DOTFILES_BACKUP/.config/nvim/general
     mkdir -p $DOTFILES_BACKUP/.config/nvim/keys
-    mkdir -p $DOTFILES_BACKUP/.config/nvim/lua
+    mkdir -p $DOTFILES_BACKUP/.config/nvim/lua/config
+    mkdir -p $DOTFILES_BACKUP/.config/nvim/lua/custom
+    mkdir -p $DOTFILES_BACKUP/.config/nvim/lua/plugins
     mkdir -p $DOTFILES_BACKUP/.config/nvim/plug-config
     mkdir -p $DOTFILES_BACKUP/.config/nvim/themes
     mkdir -p $DOTFILES_BACKUP/.config/nvim/vim-plug
     mkdir -p $DOTFILES_BACKUP/.config/picom
     mkdir -p $DOTFILES_BACKUP/.config/pistol
-    mkdir -p $DOTFILES_BACKUP/.config/polybar
+    mkdir -p $DOTFILES_BACKUP/.config/polybar/scripts
     mkdir -p $DOTFILES_BACKUP/.config/rofi
     mkdir -p $DOTFILES_BACKUP/.config/sxhkd
     mkdir -p $DOTFILES_BACKUP/.config/yazi
+    mkdir -p $DOTFILES_BACKUP/.hammerspoon
     mkdir -p $DOTFILES_BACKUP/.source-highlight
     mkdir -p $DOTFILES_BACKUP/.terminalizer
     config checkout 2>&1 | egrep "\s+\.|\s+README" | awk {'print $1'} | xargs -I{} mv {} $DOTFILES_BACKUP/{}
