@@ -53,3 +53,7 @@ end
 
 -- Compile & execute code
 vim.keymap.set("n", "<leader>r", ":lua RunCode()<CR>", { desc = "Run Code" })
+
+-- Starter
+vim.keymap.del("n", "<leader>us") -- remove "Enable Spelling"
+vim.keymap.set("n", "<leader>us", ":lua Snacks.dashboard()<CR>", { desc = "Open mini starter" })
