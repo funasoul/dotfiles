@@ -38,8 +38,12 @@ vim.keymap.set(
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- <C-n>, <C-p> will jump to next/previous error
-vim.keymap.set("n", "<C-n>", "<cmd>lua vim.diagnostic.goto_next{wrap = false}<cr>")
-vim.keymap.set("n", "<C-p>", "<cmd>lua vim.diagnostic.goto_prev{wrap = false}<cr>")
+vim.keymap.set("n", "<C-n>", function()
+  vim.diagnostic.goto_next({ wrap = false })
+end, { desc = "Go to next diagnostic (no wrap)" })
+vim.keymap.set("n", "<C-p>", function()
+  vim.diagnostic.goto_prev({ wrap = false })
+end, { desc = "Go to prev diagnostic (no wrap)" })
 
 -- Move Lines
 if vim.fn.has("macunix") then
