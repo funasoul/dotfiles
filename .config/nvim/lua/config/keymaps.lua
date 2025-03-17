@@ -47,13 +47,29 @@ if vim.fn.has("macunix") then
   vim.keymap.set("n", "˚", "<cmd>m .-2<cr>==", { desc = "Move up" })
   vim.keymap.set("i", "∆", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
   vim.keymap.set("i", "˚", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-  vim.keymap.set("v", "∆", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-  vim.keymap.set("v", "˚", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+  vim.keymap.set("v", "∆", "<cmd>m '>+1<cr>gv=gv", { desc = "Move down" })
+  vim.keymap.set("v", "˚", "<cmd>m '<-2<cr>gv=gv", { desc = "Move up" })
 end
 
--- Compile & execute code
-vim.keymap.set("n", "<leader>r", ":lua RunCode()<CR>", { desc = "Run Code" })
-
--- Starter
-vim.keymap.del("n", "<leader>us") -- remove "Enable Spelling"
-vim.keymap.set("n", "<leader>us", ":lua Snacks.dashboard()<CR>", { desc = "Open mini starter" })
+-- register to WhichKey
+if require("lazyvim.util").has("which-key.nvim") then
+  local wk = require("which-key")
+  wk.add({
+    -- Compile & execute code
+    {
+      "<leader>r",
+      function()
+        RunCode()
+      end,
+      desc = "Run Code",
+    },
+    -- Starter
+    {
+      "<leader>us",
+      function()
+        Snacks.dashboard()
+      end,
+      desc = "Open mini starter",
+    },
+  })
+end
