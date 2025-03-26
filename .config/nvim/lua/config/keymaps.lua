@@ -77,3 +77,9 @@ if require("lazyvim.util").has("which-key.nvim") then
     },
   })
 end
+
+-- Iwamoto custom (map :Wq to :wq, :WQ to :wq)
+vim.cmd([[
+  cnoreabbrev Wq wq
+  cnoreabbrev WQ wq
+]])
