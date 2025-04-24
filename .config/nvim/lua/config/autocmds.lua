@@ -2,7 +2,7 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
--- Insert timestamp after "Last Modified: Wed, 17 Jul 2024 19:36:05 +0900
+-- Insert timestamp after "Last Modified: Fri, 25 Apr 2025 01:21:41 +0900
 local function LastModified()
   if vim.bo.modified then
     local save_cursor = vim.fn.getpos(".")
@@ -20,3 +20,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = LastModified,
 })
+
+if vim.env.NVIM_AUTO_PICKER == "config" then
+  vim.schedule(function()
+    require("lazyvim.util.pick").config_files()()
+  end)
+end
