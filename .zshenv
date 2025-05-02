@@ -130,6 +130,8 @@ $HOME/go/bin \
 /opt/local/sbin \
 /usr/X11R6/bin \
 /usr/local/anaconda3/bin \
+/Applications/MacPorts/EmacsMac.app/Contents/MacOS \
+/Applications/MacPorts/EmacsMac.app/Contents/MacOS/bin \
 /Applications/MacPorts/Emacs.app/Contents/MacOS \
 /Applications/MacPorts/Emacs.app/Contents/MacOS/bin \
 /Applications/kitty.app/Contents/MacOS \
