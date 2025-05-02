@@ -1,5 +1,6 @@
 return {
   "supermaven-inc/supermaven-nvim",
+  enabled = vim.loop.os_uname().sysname ~= "OpenBSD",
   config = function()
     require("supermaven-nvim").setup({
       keymaps = {
