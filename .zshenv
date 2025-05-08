@@ -150,7 +150,7 @@ $HOME/.egit/.venv/bin \
 
 # for my path
 #path=($HOME/.vim/bin $HOME/bin{/shell,} $HOME/SBW/bin /Applications/Emacs.app/Contents/MacOS/bin /Applications/Gnuplot.app/Contents/Resources/bin $_path)
-path=($HOME/bin{/shell,} $HOME/.local/nvim/bin $HOME/Dropbox/Sync/bin{/shell,} $HOME/.cargo/bin $HOME/.nimble/bin $HOME/SBW/bin $HOME/android-sdks/platform-tools/ $_path)
+path=($HOME/bin{/shell,} $HOME/.local/nvim/bin $HOME/.local/uv/bin $HOME/Dropbox/Sync/bin{/shell,} $HOME/.cargo/bin $HOME/.nimble/bin $HOME/SBW/bin $HOME/android-sdks/platform-tools/ $_path)
 unset _path
 # add path for npm global installed module
 if [ -d ${HOME}/.local/lib/npm/bin ]; then
