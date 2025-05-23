@@ -11,3 +11,9 @@ vim.opt.shiftround = true
 vim.opt.showmatch = true
 -- bug: Setting `incsearch` to false makes characters not visible when searching with `/`.
 vim.opt.incsearch = true
+
+-- for Neovide
+if vim.g.neovide then
+  -- Put anything you want to happen only in Neovide here
+  vim.o.guifont = "JetBrainsMono Nerd Font:h18"
+end
