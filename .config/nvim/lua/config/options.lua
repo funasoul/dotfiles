@@ -14,6 +14,12 @@ vim.opt.incsearch = true
 
 -- for Neovide
 if vim.g.neovide then
-  -- Put anything you want to happen only in Neovide here
+  -- Font
   vim.o.guifont = "JetBrainsMono Nerd Font:h18"
+  -- Opacity
+  vim.g.neovide_opacity = 0.8
+  vim.g.neovide_normal_opacity = 0.8
+  -- Animated cursor
+  -- vim.g.neovide_cursor_vfx_mode = "pixiedust"
+  vim.g.neovide_cursor_vfx_mode = "railgun"
 end
