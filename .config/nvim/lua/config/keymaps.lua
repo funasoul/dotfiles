@@ -75,6 +75,8 @@ if require("lazyvim.util").has("which-key.nvim") then
       end,
       desc = "Open mini starter",
     },
+    -- CodeCompanion group
+    { "<leader>a", group = "CodeCompanion", icon = "", mode = { "n", "v" } },
   })
 end
 
