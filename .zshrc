@@ -117,4 +117,6 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/funa/.lmstudio/bin"
+if [[ -f $HOME/.lmstudio/bin ]]; then
+  export PATH="$PATH:$HOME/.lmstudio/bin"
+fi
