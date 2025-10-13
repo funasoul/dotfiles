@@ -7,7 +7,7 @@ return {
             {
               section = "terminal",
               cmd = "pokemon-colorscripts --no-title -rn bulbasaur,charmander,dratini,eevee,growlithe,mew,mimikyu,pachirisu,pancham,pichu,pikachu,piplup,psyduck,shaymin,skitty,squirtle,togepi,torchic,yamper",
-              height = 16,
+              height = 14,
               padding = 1,
             },
             { section = "keys", gap = 1, padding = 1 },
