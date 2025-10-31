@@ -48,6 +48,7 @@ if [ $? = 0 ]; then
     mkdir -p $DOTFILES_BACKUP/.config/bspwm
     mkdir -p $DOTFILES_BACKUP/.config/ctpv
     mkdir -p $DOTFILES_BACKUP/.config/eza
+    mkdir -p $DOTFILES_BACKUP/.config/fastfetch
     mkdir -p $DOTFILES_BACKUP/.config/i3
     mkdir -p $DOTFILES_BACKUP/.config/kitty/kitty_grab
     mkdir -p $DOTFILES_BACKUP/.config/kitty/themes
