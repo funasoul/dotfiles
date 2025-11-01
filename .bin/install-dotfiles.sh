@@ -29,6 +29,14 @@ if [ -d $HOME/.oh-my-zsh ]; then
 fi
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
 
+# rename default config files
+if [ -f $HOME/.zshrc ]; then
+  mv .zshrc .zshrc.default
+fi
+if [ -f $HOME/.bashrc ]; then
+  mv .bashrc .bashrc.default
+fi
+
 # git clone bare repository
 git clone --bare $DOTFILES_REPO $DOTFILES_DIR
 function config {
