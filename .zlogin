@@ -61,37 +61,39 @@ fi
 # start up
 #
 #if [ x$TTY = x/dev/ttyv0 -a $HOST != cosmos ]; then
-if [ x$TTY = x/dev/ttyv0 -o x$TTY = x/dev/tty1 -o x$TTY = x/dev/ttyE0 -o x$TTY = x/dev/console ]; then
-	echo -n 'X-Window(Fvwm2/KDE3/No)?'
-	read tmp
-	case $tmp {
-	  f)
-		ln -sf $HOME/.xinitrc.fvwm2 .xinitrc
-		ssh-agent xinit >&! $HOME/.xinitrc.err
-		;;
-	  k)
-		ln -sf $HOME/.xinitrc.kde .xinitrc
-		ssh-agent xinit >&! $HOME/.xinitrc.err
-		;;
-	  n)
-		ln -sf $HOME/.xinitrc.fvwm2 .xinitrc
-		return
-		;;
-	  *)
-		ln -sf $HOME/.xinitrc.fvwm2 .xinitrc
-		ssh-agent xinit >&! $HOME/.xinitrc.err
-#		ssh-agent sh -c "ssh-add && exec xinit"
-	}	
-	px|sed '/ps /d'
-	echo -n 'Logout ?'
-	read hogehoge
-	case $hogehoge {
-		n)
-		  return 
-		  ;;
-		*)
-		  /bin/rm -rf ~/.trashcan/*(N) > /dev/null
-		  /bin/rm -rf ~/.trashcan/.??*(N) > /dev/null
-		  logout
-	}
+if [ x$OSTYPE != xlinux-gnu ]; then
+  if [ x$TTY = x/dev/ttyv0 -o x$TTY = x/dev/tty1 -o x$TTY = x/dev/ttyE0 -o x$TTY = x/dev/console ]; then
+    echo -n 'X-Window(Fvwm2/KDE3/No)?'
+    read tmp
+    case $tmp {
+      f)
+        ln -sf $HOME/.xinitrc.fvwm2 .xinitrc
+        ssh-agent xinit >&! $HOME/.xinitrc.err
+        ;;
+      k)
+        ln -sf $HOME/.xinitrc.kde .xinitrc
+        ssh-agent xinit >&! $HOME/.xinitrc.err
+        ;;
+      n)
+        ln -sf $HOME/.xinitrc.fvwm2 .xinitrc
+        return
+        ;;
+      *)
+        ln -sf $HOME/.xinitrc.fvwm2 .xinitrc
+        ssh-agent xinit >&! $HOME/.xinitrc.err
+        #		ssh-agent sh -c "ssh-add && exec xinit"
+      }	
+    px|sed '/ps /d'
+    echo -n 'Logout ?'
+    read hogehoge
+    case $hogehoge {
+      n)
+        return 
+        ;;
+      *)
+        /bin/rm -rf ~/.trashcan/*(N) > /dev/null
+        /bin/rm -rf ~/.trashcan/.??*(N) > /dev/null
+        logout
+      }
+  fi
 fi
