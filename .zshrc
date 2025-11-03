@@ -115,8 +115,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
 # Added by LM Studio CLI (lms)
-if [[ -f $HOME/.lmstudio/bin ]]; then
-  export PATH="$PATH:$HOME/.lmstudio/bin"
-fi
+export PATH="$PATH:/Users/funa/.lmstudio/bin"
+# End of LM Studio CLI section
+
