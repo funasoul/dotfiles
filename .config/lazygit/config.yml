@@ -1,4 +1,9 @@
 gui:
   nerdFontsVersion: "3"
   authorColors:
-    'Akira Funahashi': '#77d3bf' # use light green for my commit
+    "Akira Funahashi": "#77d3bf" # use light green for my commit
+git:
+  paging:
+    colorArg: always
+    pager: delta --paging=never
+  autoFetch: false
