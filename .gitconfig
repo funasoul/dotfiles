@@ -34,7 +34,9 @@
   template = ~/Dropbox/Sync/.gitCommitMsg
 
 [alias]
-  lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
+  lgb = "!f() { if command -v serie >/dev/null 2>&1; then serie \"$@\"; else git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches \"$@\"; fi; }; f"
+  ; lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
+  ; lgb = "!serie"
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
