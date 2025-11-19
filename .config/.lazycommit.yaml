@@ -1,0 +1,19 @@
+active_provider: openai
+language: en
+
+providers:
+  openai:
+    api_key: "lmstudio"
+    # Gemma3 3GB
+    # model: "google/gemma-3-4b"
+    # deepseek-coder 8.8GB
+    # model: "deepseek-coder-v2-lite-instruct-mlx"
+    # GPT-OSS  12GB
+    # model: "openai/gpt-oss-20b"
+    # Gemma3 16GB
+    # model: "google/gemma-3-27b"
+    # qwen3 18GB
+    # model: "qwen3-32b-mlx"
+    # qwen3-coder 32GB
+    model: "qwen/qwen3-coder-30b"
+    endpoint_url: "http://localhost:1234/v1"
