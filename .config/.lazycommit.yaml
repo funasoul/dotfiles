@@ -15,5 +15,7 @@ providers:
     # qwen3 18GB
     # model: "qwen3-32b-mlx"
     # qwen3-coder 32GB
-    model: "qwen/qwen3-coder-30b"
+    # model: "qwen/qwen3-coder-30b"
+    # Devstral 2 75GB
+    model: "devstral-2-123b-instruct-2512"
     endpoint_url: "http://localhost:1234/v1"
