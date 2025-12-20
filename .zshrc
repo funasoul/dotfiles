@@ -119,3 +119,5 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:/Users/funa/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
