@@ -76,15 +76,15 @@ ZSH_CUSTOM=$HOME/Dropbox/Sync/zsh/custom
 #plugins=(ant docker docker-compose git git-extras github gitignore macports mosh mvn osx pyenv screen themes)
 #plugins=(ant docker docker-compose git gitignore macports mvn osx pyenv screen themes)
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  plugins=(ant git docker docker-compose forgit gitignore git-extras gradle macos macports mvn themes)
+  plugins=(ant docker docker-compose fast-syntax-highlighting git gitignore git-extras forgit gradle history-substring-search macos macports mvn npm themes web-search)
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-  plugins=(ant docker docker-compose git gitignore git-extras gradle mvn themes ubuntu)
+  plugins=(ant docker docker-compose fast-syntax-highlighting git gitignore git-extras forgit gradle history-substring-search mvn npm themes ubuntu web-search)
 elif [[ "$OSTYPE" == "openbsd"* ]]; then
-  plugins=(ant git gitignore git-extras gradle mvn themes)
+  plugins=(ant fast-syntax-highlighting git gitignore git-extras forgit npm themes web-search)
 elif [[ "$OSTYPE" == "freebsd"* ]]; then
-  plugins=(ant git gitignore git-extras gradle mvn themes)
+  plugins=(ant fast-syntax-highlighting git gitignore git-extras forgit npm themes web-search)
 else
-  plugins=(ant docker docker-compose git gitignore git-extras gradle mvn themes)
+  plugins=(ant docker docker-compose git gitignore git-extras forgit gradle mvn themes)
 fi
 
 source $ZSH/oh-my-zsh.sh
