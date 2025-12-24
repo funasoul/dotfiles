@@ -146,9 +146,9 @@ def get_battery_cells() -> list:
     status = "N/A"
     try:
         if sys.platform == "linux":
-            with open("/sys/class/power_supply/BAT0/status", "r") as f:
+            with open("/sys/class/power_supply/BATT/status", "r") as f:
                 status = f.read()
-            with open("/sys/class/power_supply/BAT0/capacity", "r") as f:
+            with open("/sys/class/power_supply/BATT/capacity", "r") as f:
                 percent = int(f.read())
         elif sys.platform == "darwinXXX":
             result = subprocess.run(["pmset", "-g", "batt"], stdout=subprocess.PIPE)
@@ -196,8 +196,9 @@ def get_ssid() -> str:
         result = subprocess.run(
             ["iwgetid", "-r"],
             stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
         )
-        ssid = " " + result.stdout.decode("utf-8")
+        ssid = " " + result.stdout.decode("utf-8").strip()
     elif sys.platform == "darwinXXX":
         # XXX this slows down the responce time of your kitty!
         result = subprocess.run(
