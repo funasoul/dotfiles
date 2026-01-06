@@ -1,0 +1,26 @@
+# The syntax is "key = value". The whitespace around the
+# equals doesn't matter.
+# background = #123abc
+# foreground = #ffffff
+
+theme = Catppuccin Mocha
+
+# Comments start with a `#` and are only valid on their own line.
+# Blank lines are ignored!
+
+# avoid wired beavior
+shell-integration-features = no-cursor
+
+cursor-style = block
+cursor-style-blink = false
+minimum-contrast = 1
+# only on macOS
+font-thicken = true
+
+# keybind = ctrl+z=close_surface
+# keybind = ctrl+d=new_split:right
+keybind = ctrl+i=text:\t
+
+# Empty values reset the configuration to the default value
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 15
