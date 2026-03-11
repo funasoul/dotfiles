@@ -1,12 +1,36 @@
+local pokemon = {
+  "bulbasaur",
+  "charmander",
+  "dratini",
+  "eevee",
+  "growlithe",
+  "mew",
+  "mimikyu",
+  "pachirisu",
+  "pancham",
+  "pichu",
+  "pikachu",
+  "piplup",
+  "psyduck",
+  "shaymin",
+  "skitty",
+  "squirtle",
+  "togepi",
+  "torchic",
+  "yamper",
+}
+math.randomseed(os.time())
+local chosen = pokemon[math.random(#pokemon)]
+
 return {
   "snacks.nvim",
   opts = {
     dashboard = {
-      sections = vim.fn.executable("pokemon-colorscripts") == 1
+      sections = vim.fn.executable("pokeget-rs") == 1
           and {
             {
               section = "terminal",
-              cmd = "pokemon-colorscripts --no-title -rn bulbasaur,charmander,dratini,eevee,growlithe,mew,mimikyu,pachirisu,pancham,pichu,pikachu,piplup,psyduck,shaymin,skitty,squirtle,togepi,torchic,yamper",
+              cmd = "pokeget-rs --hide-name " .. chosen,
               height = 14,
               padding = 1,
             },
