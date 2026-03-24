@@ -104,9 +104,9 @@ zinit wait'1' lucid light-mode for \
   wfxr/forgit
 
 # lazy load
-zinit wait lucid light-mode for \
-  MichaelAquilina/zsh-you-should-use.git
-
+# zinit wait lucid light-mode for \
+#   MichaelAquilina/zsh-you-should-use.git
+#
 # === source my .zshrc ===
 source $HOME/.zshrc.funa
 
