@@ -73,7 +73,7 @@ if require("lazyvim.util").has("which-key.nvim") then
       function()
         Snacks.dashboard()
       end,
-      desc = "Open mini starter",
+      desc = "Open Dashboard",
     },
     -- CodeCompanion group
     { "<leader>a", group = "CodeCompanion", icon = "", mode = { "n", "v" } },
