@@ -4,4 +4,5 @@ return {
   { "frankroeder/parrot.nvim", enabled = false },
   { "supermaven-inc/supermaven-nvim", enabled = false },
   { "olimorris/codecompanion.nvim", enabled = false },
+  { "keaising/im-select.nvim", enabled = false },
 }
