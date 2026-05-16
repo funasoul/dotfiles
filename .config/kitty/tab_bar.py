@@ -1,5 +1,6 @@
 # thanks to https://github.com/kovidgoyal/kitty/discussions/4447#discussioncomment-3240635
 # pyright: reportMissingImports=false
+import glob
 import re
 import subprocess
 import sys
@@ -146,10 +147,13 @@ def get_battery_cells() -> list:
     status = "N/A"
     try:
         if sys.platform == "linux":
-            with open("/sys/class/power_supply/BATT/status", "r") as f:
-                status = f.read()
-            with open("/sys/class/power_supply/BATT/capacity", "r") as f:
-                percent = int(f.read())
+            bat_dirs = glob.glob("/sys/class/power_supply/BAT*")
+            if bat_dirs:
+                bat_path = bat_dirs[0]
+                with open(f"{bat_path}/status", "r") as f:
+                    status = f.read()
+                with open(f"{bat_path}/capacity", "r") as f:
+                    percent = int(f.read())
         elif sys.platform == "darwinXXX":
             result = subprocess.run(["pmset", "-g", "batt"], stdout=subprocess.PIPE)
             p = re.compile("(\\d+)%.* (not charging|discharging|charging|charged)")
