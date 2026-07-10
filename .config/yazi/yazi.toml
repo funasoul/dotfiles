@@ -78,6 +78,16 @@ wrap = "yes"
   # https://mediaarea.net/en/MediaInfo/Support/Formats
   # If it's not working, file an issue at https://github.com/boydaihungst/mediainfo.yazi/issues
 
+[[plugin.prepend_fetchers]]
+url    = "*"
+run    = "mactag"
+group  = "mactag"
+
+[[plugin.prepend_fetchers]]
+url    = "*/"
+run    = "mactag"
+group  = "mactag"
+
 # For a large file like Adobe Illustrator, Adobe Photoshop, etc
 # you may need to increase the memory limit if no image is rendered.
 # https://yazi-rs.github.io/docs/configuration/yazi#tasks
