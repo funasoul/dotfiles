@@ -2,7 +2,7 @@
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+  . ~/.bashrc
 fi
 
 # User specific environment and startup programs
@@ -62,9 +62,6 @@ if [ -e $HOME/.cargo/env ]; then
   . "$HOME/.cargo/env"
 fi
 
-
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/funa/.cache/lm-studio/bin"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/funa/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
+# End of LM Studio CLI section
