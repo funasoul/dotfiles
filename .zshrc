@@ -111,7 +111,7 @@ zinit wait'1' lucid light-mode for \
 source $HOME/.zshrc.funa
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/funa/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
 # for install-release
