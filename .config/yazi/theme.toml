@@ -1,2 +1,7 @@
 [flavor]
 use = "catppuccin-mocha"
+
+[icon]
+prepend_exts = [
+	{ name = "toml", text = "\ue6b2", fg = "#e5c07b" },
+]
