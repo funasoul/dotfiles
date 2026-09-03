@@ -2,21 +2,21 @@ if ya.target_os() == "macos" then
 	require("mactag"):setup({
 		-- Keys used to add or remove tags
 		keys = {
-			r = "Red",
-			o = "Orange",
-			y = "Yellow",
-			g = "Green",
-			b = "Blue",
-			p = "Purple",
+			r = "レッド",
+			o = "オレンジ",
+			y = "イエロー",
+			g = "グリーン",
+			b = "ブルー",
+			p = "パープル",
 		},
 		-- Colors used to display tags
 		colors = {
-			Red = "#ee7b70",
-			Orange = "#f5bd5c",
-			Yellow = "#fbe764",
-			Green = "#91fc87",
-			Blue = "#5fa3f8",
-			Purple = "#cb88f8",
+			["レッド"] = "#ee7b70",
+			["オレンジ"] = "#f5bd5c",
+			["イエロー"] = "#fbe764",
+			["グリーン"] = "#91fc87",
+			["ブルー"] = "#5fa3f8",
+			["パープル"] = "#cb88f8",
 		},
 		-- Order of the color circle showing in the line mode
 		order = 500,
