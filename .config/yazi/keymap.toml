@@ -22,8 +22,10 @@ desc = "Show or hide the preview pane"
 on   = [ "b", "a" ]
 run  = "plugin mactag add"
 desc = "Tag selected files"
+for  = "macos"
 
 [[mgr.prepend_keymap]]
 on   = [ "b", "r" ]
 run  = "plugin mactag remove"
 desc = "Untag selected files"
+for  = "macos"
